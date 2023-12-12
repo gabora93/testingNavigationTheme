@@ -1,0 +1,394 @@
+{
+    "homeScreen":{
+      "headerTitle": "LOAD2DAY® DRIVER CONNECT",
+      "viewBols": "Przegląd dokumentów załadunku ",
+      "viewLoadEligibility": "Przegląd zezwolenia załadunku",
+      "viewFullMenu": "Zobacz pełne menu"
+    },
+    "profile":{
+      "headerTitle": "PROFIL",
+      "firstName": "Imię:",
+      "lastName": "Nazwisko:",
+      "DrivLicence": "Prawo jazdy:",
+      "email": "Email:",
+      "changeEmailUserName": "ZMIEŃ EMAIL/NAZWĘ UŻYTKOWNIKA",
+      "changePassword": "ZMIEŃ HASŁO",
+      "updateNotification": "AKTUALIZACJI ŻETON POWIADOMIENIA ",
+      "logout": "WYLOGUJ",
+      "dissableAccount": "WYŁĄCZ KONTO"
+    },
+    "generalAlarms":{
+      "alertAppPhysicalDevice":"Musisz używać urządzenia fizycznego do powiadomień push.",
+      "alertAppNotificationsTurnedOff":"Powiadomienia są wyłączone, włącz je w ustawieniach, aby otrzymywać powiadomienia o nowych dokumentach załadunku.",
+      "alertSuccessNotiTokenUdt":"SUKCES",
+      "alertSuccessNotiTokenUdt2":"Zaktualizowano token powiadomienia",
+      "alertTokenNotUpdated": "TOKEN NIE ZAKTUALIZOWANY",
+      "alertDeleteAccount": "Czy na pewno chcesz usunąć swoje konto?",
+      "alertDeleteAccount2": "Zamierzasz usunąć wszystkie swoje dane",
+      "alertConfirmDisableAccount": "Dla jasności, czy na pewno?",
+      "alertConfirmDisableAccount2": "Musimy dokładnie sprawdzić, czy chcesz utracić dostęp do tego konta ",
+      "alertConfirmDisableAccount3": "ponieważ nie będziesz już mógł zalogować się ponownie przy użyciu tych danych.",
+      "alertYourAccountIsSecure":"Twoje konto jest bezpieczne!",
+      "alertYourAccountIsSecure2":"Nie usunęliśmy żadnych Twoich danych",
+      "alertYourAccountDeletedSuccessfully": "Twoje konto zostało pomyślnie usunięte",
+      "alertYourAccountDeletedSuccessfully2": "Wszystkie Twoje dane zostały usunięte z naszych usług. Dziękujemy za korzystanie z Load2day® Driver Connect",
+      "alertYourAccountDeletedFailed": "Twoje konto nie mogło zostać usunięte!",
+      "alertYourAccountDeletedFailed2": "Przepraszamy, nie możemy teraz usunąć Twojego konta... spróbuj ponownie.",
+      
+      "alertAppEncounteredError": "Aplikacja napotkała błąd, spróbuj ponownie.",
+      "alertAppEncounteredError2": "Jeśli ten komunikat pojawia się wielokrotnie, skontaktuj się z helpdeskiem.",
+      "alertSomeFieldsEmpty": "Niektóre pola są puste lub zawierają nieprawidłowe wpisy.",
+      "alertSomeFieldsEmpty2": "Proszę wypełnić wszystkie pola lub wybrać prawidłową pozycję we wszystkich polach",
+      "alertUserNotFound":"Użytkownik nie znaleziony",
+      "alertInvalidEmailWriteEmail":"Nieprawidłowy email, wpisz poprawny email",
+      "alertInvalidEmailConfirmEmail":"Nieprawidłowy email",
+      "alertInvalidEmailConfirmEmail2":"wpisz poprawny email w polu 'Potwierdź email'",
+      "alertEmailsDoNotMatch":"Adresy email nie pasują",
+      "alertEmailsDoNotMatch2":"Wprowadź ten sam adres Email w obu polach",
+      "alertFieldsEmpty":"Pola są puste.",
+      "alertFieldsEmpty2":"Proszę wypełnić wszystkie wymagane pola ",
+      "alertWeSendYouEmailInstructions":"Wyślemy Ci email z instrukcjami dotyczącymi odzyskania hasła.",
+      "alertCongratulations":"Gratulacje",
+      "alertCongratulations2":"Pomyślnie zarejestrowałeś się jako użytkownik w aplikacji Load2day ® Driver Connect,  sprawdź pocztę email, aby aktywować konto",
+      "alertDataNotMatch":"Dane się nie zgadzają",
+      "alertDataNotMatch2":"W naszej bazie danych nie ma pasujących wyników.",
+      "alertUserAlreadyExist":"Użytkownik już istnieje",
+      "alertUserAlreadyExist2":"Wprowadzony użytkownik jest już zarejestrowany",
+      "alertInvalidEmailFormat":"Nieprawidłowy email",
+      "alertInvalidEmailFormat2":"Wpisz poprawny email. ",
+      "alertSuccessEmailChanged":"SUKCES",
+      "alertSuccessEmailChanged2":"Twój adres email/nazwa użytkownika została zmieniona poprawnie",
+      "alertPasswordDoNotMach":"Hasła nie pasują do siebie",
+      "alertPasswordDoNotMach2":"Wprowadź to samo hasło w obu polach.",
+      "alertSuccessPasswordChanged":"SUKCES, Twoje hasło zostało zmienione poprawnie",
+  
+      "wrongCurrentPassword": "Błędne aktualne hasło",
+      "accountNotActivated": "Konto nieaktywne",
+      "accountNotActivated2": "Sprawdź pocztę, aby aktywować konto",
+      "accountActivated": "Twoje konto zostało aktywowane",
+      "somethingsWasWorng":"Coś poszło nie tak. Proszę spróbuj ponownie",
+      "useTheEmailYouRegistered":"Użyj adresu e-mail, który zarejestrowano",
+      "useTheEmailYouRegistered2":"Niepoprawny email",
+      "wrongUsernameOrPassword":"Niepoprawna nazwa użytkownika lub hasło",
+      "emptyFieldsFillMaxNumOfBols":"Puste pole",
+      "emptyFieldsFillMaxNumOfBols2":"Proszę wpisać maksymalną liczbę dokumentów załadunku",
+      "maxNumOfBolsChanged":"Zmieniono maksymalną liczbę dokumentów załadunku",
+      "numbersGreaterThanZero":"Liczby większe niż 0",
+      "youHaveToAcceptThis":"Aby korzystać z aplikacji, musisz zaakceptować",
+      "youHaveAcceptedTermsSccessfully":"Pomyślnie zaakceptowano Regulamin",
+      "successNotificationTokenUpdated":"„Zaktualizowano token powiadomienia” "
+    },
+    "generalMessages":
+    {
+      "nothingFound": "Bez rezultatów"
+    },
+    "progress":
+    {
+      "bolRefresh": "Pobieranie dokumentów załadunku"
+    },
+    "bigMenu":{
+      "headerTitle": "MENU",
+      "profile": "PROFIL",
+      "settings": "USTAWIENIA",
+      "privacyPolicy": "POLITYKA PRYWATNOŚCI",
+      "about": "O NAS"
+    },
+    "smallMenu":{
+      "menu": "Menu",
+      "home": "Strona główna",
+      "bol": "BOL",
+      "eligibility": "Zezwolenia"
+    },
+    "boList":{
+      "headerTitle": "Lista dokumentów załadunku",
+      "notFound": "NIE ZNALEZIONO TRANSAKCJI",
+      "placeholderSearch": "Wpisz tutaj...",
+      "typeYourOrder":"Wprowadź numer zamówienia"
+    },
+    "eligibilityFreeScreen":{
+      "headerTitle": "ZEZWOLENIA DO ZAŁADUNKU",
+      "description": "To jest Standardowa wersja aplikacji Load2day Driver Connect. Wersja Enterprise zawiera możliwość weryfikacji uprawnień na uczestniczących terminalach. Aby uzyskać informacje na temat aktualizacji do pełnej wersji, kliknij tutaj.",
+      "placeholderSearch": "Wpisz tutaj...",
+      "subtitle": "Terminale uczestniczące"
+    },
+  
+  
+    "privacyPolicy":{
+      "headerTitle": "POLITYKA PRYWATNOŚCI"
+    },
+    "eligibilityPaidScreen":{
+      "headerTitle": "ZEZWOLENIA DO ZAŁADUNKU",
+      "placeholderSearch": "Wpisz tutaj...",
+      "subtitle": "Terminale uczestniczące",
+      "btnLoadRackEligibility":"ZEZWOLENIA DO STANOWISKA ZAŁADUNKU",
+      "btnOrderElegibility": "ZEZWOLENIA DO ZAMÓWIENIA",
+      "descriptionLoadRackEligibility":"Ta funkcja sprawdza poprawność danych dla dokonanych wyborów (wygasłe pola i zablokowane dane) do załadunku",
+      "descriptionOrderElegibility":"Ta funkcja sprawdza poprawność danych dla dokonanych wyborów (wygasłe pola i zablokowane dane) do określonego zamówienia"
+    },
+    "eligibilityLoad":{
+      "headerTitle": "ZEZWOLENIA DO ZAŁADUNKU",
+      "terminal":"Terminal",
+      "terminalPh": "Wprowadź terminal",
+      "suppliers": "Dostawcy",
+      "suppliersPh": "Wprowadź dostawcę",
+      "customer": "Klient",
+      "customerPh": "Wprowadź klienta",
+      "account": "Rachunek",
+      "accountPh": "Wprowadź rachunek",
+      "destination": "Miejsce docelowe",
+      "destinationPh": "Wprowadź miejsce docelowe",
+      "tractorTruck" : "Ciężarówka/Przyczepa",
+      "tractorTruckPh" : "Wprowadź Ciężarówkę/Przyczepę",
+      "trailer1": "Przyczepa 1",
+      "trailer1Ph": "Wprowadź 1 Przyczepę",
+      "trailer2": "Przyczepa 2",
+      "trailer2Ph": "Wprowadź 2 Przyczepę",
+      "btnSave": "ZAPISZ",
+      "btnCheckEligibility":"SPRAWDŹ ZEZWOLENIA"
+    },
+    "eligibilityLoadResult":{
+      "headerTitle": "ZEZWOLENIA DO ZAŁADUNKU",
+      "headerTitleError": "BŁĘDY",
+      "customerData":"Dane klienta",
+      "supplierData":"Dane dostawcy",
+      "request":"Żądanie",
+      "truckData":"Dane ciężarówki",
+      "trailer1Data":"Dane przyczepy 1",
+      "trailer2Data":"Dane przyczepy 2",
+      "accountData":"Dane konta",
+      "terminalData":"Dane terminal",
+      "destinationData":"Dane miejsce docelowe",
+      "carrierData":"Dane przewoźnika",
+      "driverData":"Dane kierowcy",
+      "VSXData":"Dane VSX",
+      "passedError":"Zatwierdzone ",
+      "passed":"Nie znaleziono błędów"
+    },
+    "orderEligibility":{
+      "headerTitle": "ZEZWOLENIA DO ZAMÓWIENIA",
+      "orderNum": "Zamówienie #",
+      "orderNumPh": "Wprowadź numer zamówienia",
+      "terminal":"Terminal",
+      "terminalPh": "Wprowadź terminal",
+      "suppliers": "Dostawcy",
+      "suppliersPh": "Wprowadź dostawcę",
+      "tractorTruck" : "Ciężarówka/Przyczepa",
+      "tractorTruckPh" : "Wprowadź Ciężarówkę/Przyczepę",
+      "trailer1": "Przyczepa 1",
+      "trailer1Ph": "Wprowadź 1 Przyczepę",
+      "trailer2": "Przyczepa 2",
+      "trailer2Ph": "Wprowadź 2 Przyczepę",
+      "btnSave": "ZAPISZ",
+      "btnCheckEligibility":"SPRAWDŹ ZEZWOLENIA"
+    },
+    "orderEligibilityResults":{
+      "headerTitle": "ZEZWOLENIA DO ZAMÓWIENIA",
+      "headerTitleError": "BŁĘDY",
+      "customerData":"Dane klienta",
+      "supplierData":"Dane dostawcy",
+      "truckData":"Dane ciężarówki",
+      "trailer1Data":"Dane przyczepy 1",
+      "trailer2Data":"Dane przyczepy 2",
+      "accountData":"Dane konta",
+      "terminalData":"Dane terminal",
+      "destinationData":"Dane miejsce docelowe",
+      "carrierData":"Dane przewoźnika",
+      "driverData":"Dane kierowcy",
+      "VSXData":"Dane VSX",
+      "passedError":"Zatwierdzone ",
+      "passed":"Nie znaleziono błędów",
+      "orderData":"Dane zamówienia",
+      "request":"Żądanie",
+      "productsToLoad":"Produkty do ładunków"
+    },
+    "loginScreen":{
+      "headerTitle": "ZALOGUJ SIE",
+      "txtUserName": "Użytkownik",
+      "txtUserNamePh": "Wpisz twoją nazwę użytkownika",
+      "txtPassword": "Hasło",
+      "txtPasswordPh": "Wpisz swoje hasło",
+      "btnEnter": "ENTER",
+      "signUp": "Nie zarejestrowany? ZAPISZ SIĘ!",
+      "forgotUsername": "Zapomniałeś nazwy użytkownika",
+      "forgotPassword": "Zapomniałeś hasła",
+      "registered": "ZAMELDOWAĆ SIĘ"
+    },
+    "forgotUsername":{
+      "headerTitle": "ZAPOMNIAŁEŚ NAZWY UŻYTKOWNIKA",
+      "txtFirstName": "Imię",
+      "txtFirstNamePh": "Wprowadź swoje imię",
+      "txtLastName":"Nazwisko",
+      "txtLastNamePh": "Wpisz swoje nazwisko",
+      "txtLicense":"Prawo jazdy",
+      "txtLicensePh": "Wpisz numer swojego prawa jazdy",
+      "btnGetUsername": "POBIERZ NAZWĘ UŻYTKOWNIKA"
+    },
+    "forgotPassword":{
+      "headerTitle": "ODZYSKAJ HASŁO",
+      "txtEmailUsername": "EMAIL",
+      "txtEmailUsernamePh": "Wprowadź swój email",
+      "btnGetPassword": "POBIERZ HASŁO"
+    },
+    "showPasswordScreen":{
+      "headerTitle": "ODZYSKAJ HASŁO",
+      "paraph1":"Wyślemy Ci email z",
+      "paraph2":"instrukcjami dotyczącymi",
+      "paraph3":" odzyskania hasła."
+    },
+    "showUsernameScreen":{
+      "headerTitle": "ODZYSKAJ NAZWĘ UŻYTKOWNIKA",
+      "paraph1":"Twoja nazwa użytkownika to:"
+    },
+    "changelanguage":{
+      "btnChangeLanguageLogin":"Zmień język",
+      "btnChangeLanguage":"ZMIEŃ JĘZYK",
+      "btnChangeLanguageSelection":"     Wybór języka    ",
+      "english":"English/Angielski",
+      "french":"French/Francuski",
+      "german":"German/Niemiecki",
+      "italian":"Italian/Włoski",
+      "spanish":"Spanish/Hiszpański",
+      "nederlands":"Dutch/Nederlands",
+      "Polish": "Polish/Polski"
+    },
+    "loginAfterSignup":{
+      "headerTitle": "ZALOGUJ SIE",
+      "txtUserName": "Użytkownik",
+      "txtUserNamePh": "Wpisz twoją nazwę użytkownika",
+      "txtPassword": "Hasło",
+      "txtPasswordPh": "Wpisz swoje hasło"
+    },
+    "signup":{
+    "headerTitle": "ZAPISZ SIĘ",
+    "txtFirstName":"Imię",
+    "txtFirstNamePh":"Wprowadź swoje imię",
+    "txtLastName":"Nazwisko",
+    "txtLastNamePh":"Wpisz swoje nazwisko",
+    "txtLicense":"Prawo jazdy",
+    "txtLicensePh":"Wpisz numer swojego prawa jazdy",
+    "txtEmail":"Email",
+    "txtEmailPh":"Wprowadź swój email",
+    "txtConfirmEmail":"Potwierdź swój email",
+    "txtConfirmEmailPh":"Potwierdź swój email",
+    "txtPassword":"Hasło",
+    "txtPasswordPh":"Wprowadź hasło",
+    "txtConfirmPassword":"Potwierdź hasło",
+    "txtConfirmPasswordPh":"Potwierdź swój hasło",
+    "btnRegister":"ZAREJESTRUJ SIĘ",
+    "mailMessage":"Twój adres email zostanie użyty do zalogowania się na Twoje konto.",
+    "alertPasswordEasiest":"The password is to easy",
+    "validationEightWrong":"X Minimum 8 znaków",
+    "validationLowerWrong":"X Co najmniej jedna (1) mała litera",
+    "validationUpperWrong":"X Co najmniej jedna (1) wielka litera",
+    "validationNumberWrong":"X Co najmniej jedna (1) cyfra",
+    "validationSymbolWrong":"X Co najmniej jeden (1) znak specjalny",
+    "validationEightFine":"✓ Minimum 8 znaków",
+    "validationLowerFine":"✓ Co najmniej jedna (1) mała litera",
+    "validationUpperFine":"✓ Co najmniej jedna (1) wielka litera",
+    "validationNumberFine":"✓ Co najmniej jedna (1) cyfra",
+    "validationSymbolFine":"✓ Co najmniej jeden (1) znak specjalny"
+    },
+  
+  
+  
+    "elibilityBlackWords":{
+      "standard": "Standard"
+    },
+    "changeEmailUserName":{
+      "headerTitle": "ZMIEŃ EMAIL/NAZWĘ UŻYTKOWNIKA",
+      "emailUsername":"Email",
+      "placeholderemailUsername":"Wprowadź swój email",
+      "newEmail": "Nowy email",
+      "placeholdernewEmail": "Potwierdź swój email",
+      "confirmEmail":"Potwierdź swój email",
+      "placeholderconfirmEmail":"Wpisz ponownie swój nowy adres Email/nazwę użytkownika",
+      "btnSave": "ZAPISZ"
+    },
+    "changePassword":
+    {
+        "headerTitle": "Zmień hasło",
+        "currentPass": "Aktualne hasło",
+        "placeholderCurrentPass":"Wpisz swoje obecne hasło",
+        "newPass":"Nowe hasło",
+        "placeholderNewPass":"Wpisz swoje nowe hasło",
+        "confirmPass":"Potwierdź hasło",
+        "placeholderConfirmPass":"Wpisz ponownie swoje nowe hasło",
+        "btnSave": "ZAPISZ"
+    },
+    "settings":{
+      "headerTitle": "USTAWIENIA",
+      "description": "Jest to maksymalna liczba najnowszych dokumentów załadunku, które będą wyświetlane w aplikacji w ciągu ostatnich 90 dni",
+      "labelNumberBols": "Maksymalna liczba dokumentów załadunku",
+      "subtitle1" :"Jest to maksymalna liczba najnowszych",
+      "subtitle2" :"dokumentów załadunku, które będą wyświetlane",
+      "subtitle3" :"w aplikacji w ciągu ostatnich 90 dni",
+      "btnSave":"ZAPISZ"
+    },
+    "alerts":{
+      "tokenUpdated":"SUKCES, zaktualizowano token powiadomienia"
+    },
+    "common": {
+      "ok": "OK!",
+      "cancel": "Cancel",
+      "back": "Back",
+      "sure":"Jestem pewien",
+      "support":"Pomoc"
+    },
+    "errors": {
+      "invalidEmail": "Invalid email address."
+    },
+    "welcomeScreen": {
+      "poweredBy": "POWERED BY IGNITE",
+      "readyForLaunch": "Ready for launch.",
+      "continue": "CONTINUE"
+    },
+    "loginCredentials": {
+      "labelUsername": "Username",
+      "headerTitle": "ZALOGUJ SIE",
+      "loginButton": "ENTER"
+    },
+    "SignupScreen": {
+      "headerTitle": "LOAD2DAY® DRIVER CONNECT",
+      "registerButton": "REGISTER"
+    },
+    "activationScreen": {
+      "refreshButton": "ODŚWIEŻAĆ",
+      "longTextHeader":"Twoje konto musi być aktywowane, sprawdź pocztę, aby aktywować konto. Jeśli nie otrzymałeś emaila aktywacyjnego, sprawdź folder śmieci w swojej skrzynce pocztowej. Jeśli już aktywowałeś swoje konto, naciśnij przycisk odśwież."
+    },
+    "termsScreen": {
+      "accept": "ACCEPT"
+    },
+    "demoScreen": {
+      "howTo": "HOW TO",
+      "title": "What’s In This Stack?",
+      "tagLine": "Congratulations, you’ve got a very advanced React Native app template here.  Take advantage of this boilerplate!",
+      "reactotron": "Demo Reactotron",
+      "demoList": "Demo List",
+      "androidReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running, run adb reverse tcp:9090 tcp:9090 from your terminal, and reload the app.",
+      "iosReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app.",
+      "macosReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app.",
+      "webReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app.",
+      "windowsReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app."
+    },
+    "demoListScreen": {
+      "title": "Demo List"
+    },
+    "errorScreen": {
+      "title": "Something went wrong!",
+      "friendlySubtitle": "This is the screen that your users will see in production when an error is thrown. You'll want to customize this message (located in `app/i18n/en.json`) and probably the layout as well (`app/screens/error`). If you want to remove this entirely, check `app/app.tsx` for the <ErrorBoundary> component.",
+      "traceTitle": "Error from %{name} stack",
+      "reset": "RESET APP"
+    },
+    "storybook": {
+      "placeholder": "Placeholder",
+      "field": "Field"
+    },
+    "bolInformation":{
+      "bolInfo": "Información de BOL",
+      "bolNumber": "Número de Bol: ",
+      "terminal": "Terminal: ",
+      "transDate": "Fecha de Transaccion: ",
+      "transRefNum": "Número de Transaccion: "
+    }
+  }
+  

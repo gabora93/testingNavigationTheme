@@ -1,0 +1,394 @@
+{
+  "homeScreen":{
+    "headerTitle": "LOAD2DAY® DRIVER CONNECT",
+    "viewBols": "Voir BOLs",
+    "viewLoadEligibility": "Voir éligibilité à charger",
+    "viewFullMenu": "Voir menu complet"
+  },
+  "profile":{
+    "headerTitle": "PROFILE",
+    "firstName": "Prénom:",
+    "lastName": "Nom de famille:",
+    "DrivLicence": "Permis de conduire:",
+    "email": "Email:",
+    "changeEmailUserName": "MODIFIER ADRESSE EMAIL/NOM D'UTILISATEUR",
+    "changePassword": "MODIFIER LE MOT DE PASSE",
+    "updateNotification": "MISE À JOUR DU TOKEN DE NOTIFICATION",
+    "logout": "SE DÉCONNECTER",
+    "dissableAccount": "DÉSACTIVER ACCOUNT"
+  },
+  "generalAlarms":{
+
+    "alertAppPhysicalDevice":"Il faut utiliser un appareil physique pour les notifications push.",
+    "alertAppNotificationsTurnedOff":"Les notifications push sont désactivées, activez-les dans les paramètres pour recevoir les notifications des nouveaux BOL.",
+    "alertSuccessNotiTokenUdt":"RÉUSSI",
+    "alertSuccessNotiTokenUdt2":"Token de notification mis à jour",
+    "alertTokenNotUpdated": "TOKEN NON MIS À JOUR",
+    "alertDeleteAccount": "Êtes-vous sûr de vouloir supprimer votre account?",
+    "alertDeleteAccount2": "Vous êtes sur le point de supprimer toutes vos données",
+    "alertConfirmDisableAccount": "Juste pour être clair, êtes-vous sûr ?",
+    "alertConfirmDisableAccount2": "Nous devons vérifier si vous souhaitez perdre l'accès à cet account ",
+    "alertConfirmDisableAccount3": "car vous ne pourriez plus vous reconnecter avec ces informations d'identification.",
+    "alertYourAccountIsSecure":"Votre account est sécurisé!",
+    "alertYourAccountIsSecure2":"Nous n'avons supprimé aucune de vos données.",
+    "alertYourAccountDeletedSuccessfully": "Votre account a été supprimé avec succès",
+    "alertYourAccountDeletedSuccessfully2": "Toutes vos données ont été supprimées de nos services. Merci d'utiliser Load2day® Driver Connect.",
+    "alertYourAccountDeletedFailed": "Votre account n'a pas pu être supprimé!",
+    "alertYourAccountDeletedFailed2": "Désolé, nous ne sommes pas en mesure de supprimer votre account pour le moment... veuillez réessayer.",
+    "alertUserNotFound":"Utilisateur pas trouvé",
+    "alertInvalidEmailWriteEmail":"Adresse email invalide, utiliser une adresse email valide",
+    "alertInvalidEmailConfirmEmail":"Adresse email invalide",
+    "alertInvalidEmailConfirmEmail2":"Utiliser une adresse email valide en ' Confirmer adresse email' ",
+    "alertEmailsDoNotMatch":"Les adresses email ne sont pas identiques.",
+    "alertEmailsDoNotMatch2":"Entrez un même adresse email dans les deux champs.",
+    "alertFieldsEmpty":"Les champs sont vides.",
+    "alertFieldsEmpty2":"Veuillez remplir tous les champs obligatoires",
+    "alertWeSendYouEmailInstructions":"Nous vous envoyons un email avec des instructions pour récupérer votre mot de passe",
+    "alertCongratulations":"Félicitations",
+    "alertCongratulations2":"Vous vous avez enregistré avec succès en tant qu'utilisateur avec l'application Load2day ® Driver Connect, veuillez vérifier votre email pour activer votre account",
+    "alertDataNotMatch":"Les données ne correspondent pas",
+    "alertDataNotMatch2":"Il n'y a pas d'enregistrements correspondants dans notre base de données.",
+    "alertUserAlreadyExist":"L'utilisateur existe déjà",
+    "alertUserAlreadyExist2":"L'utilisateur que vous avez entré est déjà enregistré.",
+    "alertPasswordDoNotMach":"Les mots de passe ne correspondent pas",
+    "alertPasswordDoNotMach2":"Veuillez entrer le même mot de passe dans les deux champs.",
+    "alertInvalidEmailFormat":"Adresse email invalide",
+    "alertInvalidEmailFormat2":"Utiliser une adresse email valide",    
+    "alertAppEncounteredError": "L'application a rencontré une erreur, veuillez réessayer.",
+    "alertAppEncounteredError2": "Si vous recevez ce message à plusieurs reprises, veuillez contacter le service d'assistance.",
+    "alertSuccessEmailChanged":"RÉUSSI",
+    "alertSuccessEmailChanged2":"Votre email/nom d'utilisateur a été modifié correctement.",
+    "alertSuccessPasswordChanged":"RÉUSSI, votre mot de passe a été modifié correctement",
+    "alertSomeFieldsEmpty": "Certains champs sont vides ou contiennent des entrées non valides.",
+    "alertSomeFieldsEmpty2": "Veuillez remplir tous les champs ou sélectionner un article valide dans tous les champs.",
+
+    
+
+    "wrongCurrentPassword": "Mot de passe actuel incorrect",
+    "accountNotActivated": "Account pas activé",
+    "accountNotActivated2": "Vérifier votre email afin d'activer votre account svp.",
+    "accountActivated": "Votre account est activé.",
+    "somethingsWasWorng":"Une erreur s'est produite. Veuillez réessayer.",
+    "useTheEmailYouRegistered":"Utilisez l'adresse email avec laquelle vous vous êtes inscrit",
+    "useTheEmailYouRegistered2":"Adresse email invalide",
+    "wrongUsernameOrPassword":"Nom d'utilisateur ou mot de passe incorrect",
+    "emptyFieldsFillMaxNumOfBols":"Champ vide",
+    "emptyFieldsFillMaxNumOfBols2":"Veuillez indiquer le nombre maximum de BOL",
+    "maxNumOfBolsChanged":"Nombre maximal de BOL modifiés",
+    "numbersGreaterThanZero":"Seulement les nombres supérieurs à 0",
+    "youHaveToAcceptThis":"Il faut accepter afin d'utiliser l'application",
+    "youHaveAcceptedTermsSccessfully":"Vous avez accepté les Terms & Conditions avec succès",
+    "successNotificationTokenUpdated":"Retrieving data. Wait a few seconds and try to cut or copy again."
+  },
+  "generalMessages":
+  {
+    "nothingFound": "Sans résultats"
+  },
+  "progress":
+  {
+    "bolRefresh": "Récupération des BOLs"
+  },
+  "bigMenu":{
+    "headerTitle": "MENU",
+    "profile": "PROFILE",
+    "settings": "RÉGLAGE",
+    "privacyPolicy": "DÉCLARATION DE CONFIDENTIALITÉ",
+    "about": "À PROPOS"
+  },
+  "smallMenu":{
+    "menu": "Menu",
+    "home": "Home",
+    "bol": "BOL",
+    "eligibility": "Éligibilité"
+  },
+  "boList":{
+    "headerTitle": "APERÇU BOL",
+    "notFound": "AUCUNE TRANSACTION TROUVÉE",
+    "placeholderSearch": "Écrivez ici...",
+    "typeYourOrder":"Entrez votre commande"
+  },
+  "eligibilityFreeScreen":{
+    "headerTitle": "ÉLIGIBILITÉ À CHARGER",
+    "description": "Il s'agit de la version Standard de l'app Load2day Driver Connect. La version Enterprise inclut la possibilité de vérifier votre éligibilité dans les terminaux participants. Pour plus d'informations sur la mise à niveau vers la version complète, veuillez cliquer ici.",
+    "placeholderSearch": "Écrivez ici...",
+    "subtitle": "Terminaux participants"
+  },
+  "elibilityBlackWords":{
+    "standard": "Standard"
+  },
+  "changeEmailUserName":{
+    "headerTitle": "MODIFIER ADRESSE EMAIL/NOM D'UTILISATEUR",
+    "emailUsername":"Adresse email/Nom d'utilisateur",
+    "placeholderemailUsername":"Entrez votre nom d'utilisateur",
+    "newEmail": "Nouvelle adresse email",
+    "placeholdernewEmail": "Entrez votre adresse email/nom d'utilisateur ",
+    "confirmEmail":"Confirmer votre adresse email",
+    "placeholderconfirmEmail":"Écrivez votre nouvelle email/nom d'utilisateur",
+    "btnSave": "SAUVEGARDER"
+  },
+  "changePassword":
+  {
+      "headerTitle": "MODIFIER MOT DE PASSE",
+      "currentPass": "Mot de passe actuel",
+      "placeholderCurrentPass":"Entrez votre mot de passe actuel",
+      "newPass":"Nouveau mot de passe",
+      "placeholderNewPass":"Entrez votre nouveau mot de passe",
+      "confirmPass":"Confirmer votre mot de passe",
+      "placeholderConfirmPass":"Reconfirmez votre mot de passe",
+      "btnSave": "SAUVEGARDER"
+  },
+  "alerts":{
+    "tokenUpdated":"Jeton mis à jour avec succès"
+  },
+  "settings":{
+    "headerTitle": "RÉGLAGE",
+    "description": "Il s'agit du nombre maximal de BOL les plus récents qui s'afficheront dans l'application au cours des 90 derniers jours",
+    "labelNumberBols": "Nombre maximal de BOL",
+    "subtitle1" :"Il s'agit du nombre maximal de BOL ",
+    "subtitle2" :"les plus récents qui s'afficheront dans ",
+    "subtitle3" :"l'application au cours des 90 derniers jours",
+    "btnSave":"SAUVEGARDER"
+  },
+  "common": {
+    "ok": "OK!",
+    "cancel": "Annuler",
+    "back": "Derrière",
+    "sure":"Je suis sûr",
+    "support":"Service d'assistance "
+  },
+  "eligibilityPaidScreen":{
+    "headerTitle": "ÉLIGIBILITÉ À CHARGER",
+    "placeholderSearch": "Écrivez ici...",
+    "subtitle": "Terminaux participants",
+    "btnLoadRackEligibility":"ÉLIGIBILITÉ AU QUAI DE CHARGEMENT",
+    "btnOrderElegibility": "ÉLIGIBILITÉ DE COMMANDE",
+    "descriptionLoadRackEligibility":"Cette fonction vérifie la validité des données pour les sélections effectuées (champs expirés et enregistrements verrouillés) pour un chargement",
+    "descriptionOrderElegibility":"Cette fonction vérifie la validité des données pour les sélections effectuées (champs expirés et enregistrements verrouillés) pour une commande"
+  },
+  "eligibilityLoad":{
+    "headerTitle": "ÉLIGIBILITÉ À CHARGER",
+    "terminal":"Dépôt",
+    "terminalPh": "Entrez dépôt",
+    "suppliers": "Propriétaire produit/supplier",
+    "suppliersPh": "Entrez Supplier",
+    "customer": "Client (Customer)",
+    "customerPh": "Entrez client (Customer)",
+    "account": "Account",
+    "accountPh": "Entrez account",
+    "destination": "Destination",
+    "destinationPh": "Entrez destination",
+    "tractorTruck" : "Tracteur/Camion Citerne",
+    "tractorTruckPh" : "Entrez Tracteur/Camion Citerne",
+    "trailer1": "Remorque 1",
+    "trailer1Ph": "Entrez Remorque 1",
+    "trailer2": "Remorque 2",
+    "trailer2Ph": "Entrez Remorque 2",
+    "btnSave": "SAUVEGARDER",
+    "btnCheckEligibility":"VÉRIFIER L'ÉLIGIBILITÉ"
+  },
+  "eligibilityLoadResult":{
+    "headerTitle": "ÉLIGIBILITÉ À CHARGER",
+    "headerTitleError": "ERREURS",
+    "request":"Demande",
+    "customerData":"Données Client (Customer)",
+    "supplierData":"Données Propriétaire produit/supplier",
+    "truckData":"Données Tracteur/Camion Citerne",
+    "trailer1Data":"Données Remorque 1",
+    "trailer2Data":"Données Remorque 2",
+    "accountData":"Données Account",
+    "terminalData":"Données Dépôt",
+    "destinationData":"Données Destination",
+    "carrierData":"Données Transporteur",
+    "driverData":"Données Chauffeur",
+    "VSXData":"Données VSX",
+    "passedError":"Réussi",
+    "passed":"Pas d'erreurs trouvées"
+  },
+  "orderEligibility":{
+    "headerTitle": "ÉLIGIBILITÉ COMMANDE",
+    "orderNum": "Commande #",
+    "orderNumPh": "Entrez numéro de commande",
+    "terminal":"Dépôt",
+    "terminalPh": "Entrez dépôt",
+    "suppliers": "Propriétaire produit/supplier",
+    "suppliersPh": "Entrez Supplier",
+    "tractorTruck" : "Tracteur/Camion Citerne",
+    "tractorTruckPh" : "Entrez Tracteur/Camion Citerne",
+    "trailer1": "Remorque 1",
+    "trailer1Ph": "Entrez Remorque 1",
+    "trailer2": "Remorque 2",
+    "trailer2Ph": "Entrez Remorque 2",
+    "btnSave": "SAUVEGARDER",
+    "btnCheckEligibility":"VÉRIFIER L'ÉLIGIBILITÉ"
+  },
+  "orderEligibilityResults":{
+    "headerTitle": "ÉLIGIBILITÉ COMMANDE",
+    "headerTitleError": "Erreurs",
+    "customerData":"Données Client (Customer)",
+    "supplierData":"Données Propriétaire produit/supplier",
+    "truckData":"Données Tracteur/Camion Citerne",
+    "trailer1Data":"Données Remorque 1",
+    "trailer2Data":"Données Remorque 2",
+    "accountData":"Données Account",
+    "terminalData":"Données Dépôt",
+    "destinationData":"Données Destination",
+    "carrierData":"Données Transporteur",
+    "driverData":"Données Chauffeur",
+    "VSXData":"Données VSX",
+    "passedError":"Réussi",
+    "passed":"Pas d'erreurs trouvées",
+    "orderData":"Données Commande",
+    "request":"Demande",
+    "productsToLoad":"Produits à charger"
+  },
+  "loginScreen":{
+    "headerTitle": "CONNEXION",
+    "txtUserName": "Nom d'utilisateur",
+    "txtUserNamePh": "Entrez votre nom d'utilisateur",
+    "txtPassword": "Mot de passe",
+    "txtPasswordPh": "Entrez votre mot de passe",
+    "btnEnter": "ENTER",
+    "signUp": "Pas encore registré? ENSCRIVEZ-VOUS!",
+    "forgotUsername": "Nom d'utilisateur oublié",
+    "forgotPassword": "Mot de passe oublié",
+    "registered": "ENREGISTREMENT"
+  },
+  "forgotUsername":{
+    "headerTitle": "NOM D'UTILISATEUR OUBLIÉ",
+    "txtFirstName": "Prénom",
+    "txtFirstNamePh": "Entrez votre prénom",
+    "txtLastName":"Nom de famille",
+    "txtLastNamePh": "Entrez votre nom de famille",
+    "txtLicense":"Permis de conduire",
+    "txtLicensePh": "Entrez le numéro de votre permis de conduire ",
+    "btnGetUsername": "OBTENIR LE NOM D'UTILISATEUR"
+  },
+  "forgotPassword":{
+    "headerTitle": "RÉCUPÉRER MOT DE PASSE",
+    "txtEmailUsername": "Adresse email/Nom d'utilisateur",
+    "txtEmailUsernamePh": "Entrez votre nom d'utilisateur",
+    "btnGetPassword": "OBTENIR MOT DE PASSE"
+  },
+  "showPasswordScreen":{
+    "headerTitle": "RÉCUPÉRER MOT DE PASSE",
+    "paraph1":"Nous vous envoyons un email",
+    "paraph2":"avec des instructions pour",
+    "paraph3":"récupérer votre mot de passe"
+  },
+  "showUsernameScreen":{
+    "headerTitle": "RÉCUPÉRER L'UTILISATEUR",
+    "paraph1":"Votre nom d'utilisateur est:"
+  },
+  "changelanguage":{
+    "btnChangeLanguageLogin":"Changer la langue",
+    "btnChangeLanguage":"CHANGER LA LANGUE",
+    "btnChangeLanguageSelection":"sélection de la langue",
+    "english":"English/Anglais",
+    "french":"French/Français",
+    "german":"German/Allemand",
+    "italian":"Italian/Italien",
+    "spanish":"Spanish/Espagnol",
+    "nederlands":"Dutch/Néerlandais",
+    "Polish": "Polish/Polonais"
+  },
+  "loginAfterSignup":{
+    "headerTitle": "CONNEXION",
+    "txtUserName": "Nom d'utilisateur",
+    "txtUserNamePh": "Entrez votre nom d'utilisateur",
+    "txtPassword": "Mot de passe",
+    "txtPasswordPh": "Entrez votre mot de passe"
+  },
+  "signup":{
+  "headerTitle": "REGISTRER",
+  "txtFirstName":"Prénom",
+  "txtFirstNamePh":"Entrez votre prénom",
+  "txtLastName":"Nom de Famille",
+  "txtLastNamePh":"Entrez votre nom de famille",
+  "txtLicense":"Permis de conduire",
+  "txtLicensePh":"Entrez votre permis de conduire ",
+  "txtEmail":"Email",
+  "txtEmailPh":"Entrez votre adresse email",
+  "txtConfirmEmail":"Confirmer email",
+  "txtConfirmEmailPh":"Reconfirmez adresse email",
+  "txtPassword":"Mot de passe",
+  "txtPasswordPh":"Entrez mot de passe",
+  "txtConfirmPassword":"Confirmer mot de passe",
+  "txtConfirmPasswordPh":"Reconfirmez mot de passe",
+  "btnRegister":"REGISTRER",
+  "mailMessage":"L'adresse email est utilisé pour accéder votre account",
+  "alertPasswordEasiest":"The password is to easy",
+  "validationEightWrong":"X Au minimum 8 caractères",
+  "validationLowerWrong":"X Au moins une (1) lettre minuscule",
+  "validationUpperWrong":"X Au moins une (1)  lettre majuscule",
+  "validationNumberWrong":"X Au moins un (1) chiffre",
+  "validationSymbolWrong":"X Au moins un (1) caractère spécial",
+  "validationEightFine":"✓ Au minimum 8 caractères",
+  "validationLowerFine":"✓ Au moins une (1) lettre minuscule",
+  "validationUpperFine":"✓ Au moins une (1)  lettre majuscule",
+  "validationNumberFine":"✓ Au moins un (1) chiffre",
+  "validationSymbolFine":"✓ Au moins un (1) caractère spécial"
+  },
+  "privacyPolicy":{
+    "headerTitle": "DÉCLARATION DE CONFIDENTIALITÉ"
+  },
+
+
+
+  
+  "errors": {
+    "invalidEmail": "Invalid email address."
+  },
+  "welcomeScreen": {
+    "poweredBy": "POWERED BY IGNITE",
+    "readyForLaunch": "Ready for launch.",
+    "continue": "CONTINUE"
+  },
+  "loginCredentials": {
+    "labelUsername": "Username",
+    "headerTitle": "CONNEXION",
+    "loginButton": "ACCEDER"
+  },
+  "SignupScreen": {
+    "headerTitle": "LOAD2DAY® DRIVER CONNECT",
+    "registerButton": "REGISTRO"
+  },
+  "activationScreen": {
+    "refreshButton": "ACTUALISER",
+    "longTextHeader":"Votre account doit être activé, veuillez consulter votre messagerie pour activer votre account. Si vous n'avez pas reçu d'email d'activation, veuillez vérifier le dossier de courrier indésirable de votre boîte aux emails. Si vous avez déjà activé votre account, appuyez sur le bouton d'actualisation."
+  },
+  "termsScreen": {
+    "accept": "ACEPTO"
+  },
+  "demoScreen": {
+    "howTo": "HOW TO",
+    "title": "What’s In This Stack?",
+    "tagLine": "Congratulations, you’ve got a very advanced React Native app template here.  Take advantage of this boilerplate!",
+    "reactotron": "Demo Reactotron",
+    "demoList": "Demo List",
+    "androidReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running, run adb reverse tcp:9090 tcp:9090 from your terminal, and reload the app.",
+    "iosReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app.",
+    "macosReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app.",
+    "webReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app.",
+    "windowsReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app."
+  },
+  "demoListScreen": {
+    "title": "Demo List"
+  },
+  "errorScreen": {
+    "title": "Something went wrong!",
+    "friendlySubtitle": "This is the screen that your users will see in production when an error is thrown. You'll want to customize this message (located in `app/i18n/en.json`) and probably the layout as well (`app/screens/error`). If you want to remove this entirely, check `app/app.tsx` for the <ErrorBoundary> component.",
+    "traceTitle": "Error from %{name} stack",
+    "reset": "RESET APP"
+  },
+  "storybook": {
+    "placeholder": "Placeholder",
+    "field": "Field"
+  },
+  "bolInformation":{
+    "bolInfo": "Información de BOL",
+    "bolNumber": "Número de Bol: ",
+    "terminal": "Terminal: ",
+    "transDate": "Fecha de Transaccion: ",
+    "transRefNum": "Número de Transaccion: "
+  }
+}  

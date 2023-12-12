@@ -1,0 +1,393 @@
+{
+  "homeScreen":{
+    "headerTitle": "LOAD2DAY® DRIVER CONNECT",
+    "viewBols": "View BOLs",
+    "viewLoadEligibility": "View Load Eligibility",
+    "viewFullMenu": "View Full Menu"
+  },
+  "profile":{
+    "headerTitle": "PROFILE",
+    "firstName": "First Name:",
+    "lastName": "Last Name:",
+    "DrivLicence": "Driver's License:",
+    "email": "Email:",
+    "changeEmailUserName": "CHANGE EMAIL/USERNAME",
+    "changePassword": "CHANGE PASSWORD",
+    "updateNotification": "UPDATE NOTIFICATION TOKEN",
+    "logout": "LOGOUT",
+    "dissableAccount": "DISABLE ACCOUNT"
+    
+  },
+  "generalAlarms":{
+    "alertAppPhysicalDevice":"Must use physical device for Push Notifications",
+    "alertAppNotificationsTurnedOff":"Notifications are turned off, turn them on in the settings to receive notifications of new BOLs",
+    "alertSuccessNotiTokenUdt":"SUCCESS",
+    "alertSuccessNotiTokenUdt2":"Notification Token Updated",
+    "alertTokenNotUpdated": "TOKEN NOT UPDATED",
+    "alertDeleteAccount": "Are you sure you want to delete your account?",
+    "alertDeleteAccount2": "You are about to remove all your data",
+    "alertConfirmDisableAccount": "Just to be clear, are you sure?",
+    "alertConfirmDisableAccount2": "We need to double check if you want to lose access to this account, since you will no longer be able to log in again with these credentials.",
+    "alertConfirmDisableAccount3": "since you will no longer be able to log in again with these credentials.",
+    "alertYourAccountIsSecure":"Your account is kept secure!'",
+    "alertYourAccountIsSecure2":"'We didn't remove any of your data",
+    "alertYourAccountDeletedSuccessfully": "Your account has been deleted successfully",
+    "alertYourAccountDeletedSuccessfully2": "All your data was removed from our services. Thank you for using Load2day® Driver Connect",
+    "alertYourAccountDeletedFailed": "Your account couldn't be deleted!",
+    "alertYourAccountDeletedFailed2": "Sorry, we are unable to delete your account right now... please try again.",
+    "alertAppEncounteredError": "The app has encountered an error, please try again",
+    "alertAppEncounteredError2": "If you get this message repeatedly please contact Support.",
+    "alertWeSendYouEmailInstructions":"We send you an email with instructions to recover your password",
+    "alertFieldsEmpty":"Fields are empty.",
+    "alertFieldsEmpty2":"Please fill all the required fields",    
+    "alertEmailsDoNotMatch":"Emails do not match",
+    "alertEmailsDoNotMatch2":"Please enter the same email in both fields",    
+    "alertSomeFieldsEmpty": "Some fields are empty or have invalid entries.",
+    "alertSomeFieldsEmpty2": "Please fill all the fields or select a valid item in all fields.",
+    "alertUserNotFound":"User not found",
+    "alertInvalidEmailWriteEmail":"Invalid Email, write a valid email",
+    "alertInvalidEmailConfirmEmail":"Invalid Email",
+    "alertInvalidEmailConfirmEmail2":"Write a valid Email in Confirm Email",
+    "alertCongratulations":"Congratulations",
+    "alertCongratulations2":"You have successfully registered as a user with  Load2day ® Driver Connect App, please check your email to activate your account",
+    "alertDataNotMatch":"Data do not match",
+    "alertDataNotMatch2":"There are no matching records in our database",
+    "alertUserAlreadyExist":"User already exist",
+    "alertUserAlreadyExist2":"The user you entered is already registered",
+    "alertPasswordDoNotMach":"Passwords do not match",
+    "alertPasswordDoNotMach2":"Please enter the same passwords in both fields",
+    "alertInvalidEmailFormat":"Invalid Email",
+    "alertInvalidEmailFormat2":"Please enter a valid email.",
+    "alertSuccessEmailChanged":"SUCCESS",
+    "alertSuccessEmailChanged2":"Your email/username has been changed correctly",
+    "alertSuccessPasswordChanged":"SUCCESS, your password has been changed correctly",
+    "wrongCurrentPassword": "Wrong current password",
+    "accountNotActivated": "Account not activated",
+    "accountNotActivated2": "Please check your email to activate your account.",
+    "accountActivated": "Your account has been activated",
+    "somethingsWasWorng":"Something went wrong. Please try again",
+    "useTheEmailYouRegistered":"Use the email you registered",
+    "useTheEmailYouRegistered2":"Invalid Email",
+    "wrongUsernameOrPassword":"Wrong username or password",
+    "emptyFieldsFillMaxNumOfBols":"Empty field",
+    "emptyFieldsFillMaxNumOfBols2":"Please fill in the max number of BOLs",
+    "maxNumOfBolsChanged":"Max number of BOLs changed",
+    "numbersGreaterThanZero":"Numbers greater than 0",
+    "youHaveToAcceptThis":"You have to accept in order to use the app.",
+    "youHaveAcceptedTermsSccessfully":"You have accepted the Terms and Conditions successfully",
+    "successNotificationTokenUpdated":"success notification token updated"
+  },
+  "generalMessages":
+  {
+    "nothingFound": "Nothing found"
+  },
+  "progress":
+  {
+    "bolRefresh": "Fetching BOLs"
+  },
+  "bigMenu":{
+    "headerTitle": "MENU",
+    "profile": "PROFILE",
+    "settings": "SETTINGS",
+    "privacyPolicy": "PRIVACY POLICY",
+    "about": "ABOUT"
+  },
+  "smallMenu":{
+    "menu": "Menu",
+    "home": "Home",
+    "bol": "BOL",
+    "eligibility": "Eligibility"
+  },
+  "boList":{
+    "headerTitle": "BOL LIST",
+    "notFound": "NO TRANSACTIONS FOUND",
+    "placeholderSearch": "Type Here...",
+    "typeYourOrder":"Type your Order"
+  },
+  "eligibilityFreeScreen":{
+    "headerTitle": "ELIGIBILITY TO LOAD",
+    "description": "This is the Standard-Version of the Load2day Driver Connect app. The Enterprise version includes the ability to verify your eligibility at participating terminals. For Information on how you can upgrade to the full version please click here",
+    "placeholderSearch": "Type Here...",
+    "subtitle": "Participating Terminals"
+  },
+
+
+  "privacyPolicy":{
+    "headerTitle": "PRIVACY POLICY"
+  },
+  "eligibilityPaidScreen":{
+    "headerTitle": "ELIGIBILITY TO LOAD",
+    "placeholderSearch": "Type Here...",
+    "subtitle": "Participating terminals",
+    "btnLoadRackEligibility":"LOAD RACK ELIGIBILITY",
+    "btnOrderElegibility": "ORDER ELIGIBILITY",
+    "descriptionLoadRackEligibility":"This feature checks data validity for the selections made (expired fields and locked records) for a load ",
+    "descriptionOrderElegibility":"This feature checks data validity for the selections made (expired fields and locked records) for a specific order"
+  },
+  "eligibilityLoad":{
+    "headerTitle": "ELIGIBILITY TO LOAD",
+    "terminal":"Terminal",
+    "terminalPh": "Enter Terminal",
+    "suppliers": "Suppliers",
+    "suppliersPh": "Enter Suppliers",
+    "customer": "Customer",
+    "customerPh": "Enter Customer",
+    "account": "Account",
+    "accountPh": "Enter Account",
+    "destination": "Destination",
+    "destinationPh": "Enter Destination",
+    "tractorTruck" : "Tractor/Truck",
+    "tractorTruckPh" : "Enter Tractor/Truck",
+    "trailer1": "Trailer 1",
+    "trailer1Ph": "Enter Trailer 1",
+    "trailer2": "Trailer 2",
+    "trailer2Ph": "Enter Trailer 2",
+    "btnSave": "SAVE",
+    "btnCheckEligibility":"CHECK ELIGIBILITY"
+  },
+  "eligibilityLoadResult":{
+    "headerTitle": "LOAD ELIGIBILITY RESULTS",
+    "headerTitleError": "ERRORS",
+    "request":"Request",
+    "customerData":"Customer Data",
+    "supplierData":"Supplier Data",
+    "truckData":"Truck Data",
+    "trailer1Data":"Trailer 1 Data",
+    "trailer2Data":"Trailer 2 Data",
+    "accountData":"Account Data",
+    "terminalData":"Terminal Data",
+    "destinationData":"Destination Data",
+    "carrierData":"Carrier Data",
+    "driverData":"Driver Data",
+    "VSXData":"VSX Data",
+    "passedError":"Passed",
+    "passed":"No Errors Found"
+  },
+  "orderEligibility":{
+    "headerTitle": "ORDER ELIGIBILITY",
+    "orderNum": "Order #",
+    "orderNumPh": "Type you Order",
+    "terminal":"Terminal",
+    "terminalPh": "Enter Terminal",
+    "suppliers": "Suppliers",
+    "suppliersPh": "Enter Suppliers",
+    "tractorTruck" : "Tractor/Truck",
+    "tractorTruckPh" : "Enter Tractor/Truck",
+    "trailer1": "Trailer 1",
+    "trailer1Ph": "Enter Trailer 1",
+    "trailer2": "Trailer 2",
+    "trailer2Ph": "Enter Trailer 2",
+    "btnSave": "SAVE",
+    "btnCheckEligibility":"CHECK ELIGIBILITY"
+  },
+  "orderEligibilityResults":{
+    "headerTitle": "ELIGIBILITY TO LOAD",
+    "headerTitleError": "ERRORS",
+    "customerData":"Customer Data",
+    "supplierData":"Supplier Data",
+    "truckData":"Truck Data",
+    "request":"Request",
+    "productsToLoad":"Products to Load",
+    "trailer1Data":"Trailer 1 Data",
+    "trailer2Data":"Trailer 2 Data",
+    "accountData":"Account Data",
+    "terminalData":"Terminal Data",
+    "destinationData":"Destination Data",
+    "carrierData":"Carrier Data",
+    "driverData":"Driver Data",
+    "VSXData":"VSX Data",
+    "passedError":"Passed",
+    "passed":"No Errors Found",
+    "orderData":"Order Data"
+  },
+  "loginScreen":{
+    "headerTitle": "LOGIN",
+    "txtUserName": "Username",
+    "txtUserNamePh": "Enter you username",
+    "txtPassword": "Password",
+    "txtPasswordPh": "Type your password",
+    "btnEnter": "ENTER",
+    "signUp": "Not registered? SIGN UP",
+    "forgotUsername": "Forgot Username",
+    "forgotPassword": "Forgot Password",
+    "registered": "SIGNUP"
+  },
+  "forgotUsername":{
+    "headerTitle": "FORGOT USERNAME",
+    "txtFirstName": "First name",
+    "txtFirstNamePh": "Enter your first name",
+    "txtLastName":"Last Name",
+    "txtLastNamePh": "Enter your last name",
+    "txtLicense":"License",
+    "txtLicensePh": "Enter your license",
+    "btnGetUsername": "GET USERNAME"
+  },
+  "forgotPassword":{
+    "headerTitle": "FORGOT PASSWORD",
+    "txtEmailUsername": "EMAIL / Username",
+    "txtEmailUsernamePh": "Enter your email/username",
+    "btnGetPassword": "GET PASSWORD"
+  },
+  "showPasswordScreen":{
+    "headerTitle": "RECOVER PASSWORD",
+    "paraph1":"We send you an email",
+    "paraph2":"with instructions",
+    "paraph3":" to recover your password."
+    
+  },
+  "showUsernameScreen":{
+    "headerTitle": "RECOVER USERNAME",
+    "paraph1":"Your username is:"
+  },
+  "changelanguage":{
+    "btnChangeLanguageLogin":"Change Language",
+    "btnChangeLanguage":"CHANGE LANGUAGE",
+    "btnChangeLanguageSelection":"Language selection",
+    "english":"English/English",
+    "french":"French/French",
+    "german":"German/German",
+    "italian":"Italian/Italian",
+    "spanish":"Spanish/Spanish",
+    "nederlands":"Dutch/Netherlands",
+    "Polish": "Polish/Polish"
+  },
+  "loginAfterSignup":{
+    "headerTitle": "LOGIN",
+    "txtUserName": "Username",
+    "txtUserNamePh": "Enter you username",
+    "txtPassword": "Password",
+    "txtPasswordPh": "Type your password"
+  },
+  "signup":{
+  "headerTitle": "SIGNUP",
+  "txtFirstName":"First name",
+  "txtFirstNamePh":"Enter your first name",
+  "txtLastName":"Last name",
+  "txtLastNamePh":"Enter your last name",
+  "txtLicense":"Driver's license",
+  "txtLicensePh":"Enter your license number",
+  "txtEmail":"Email",
+  "txtEmailPh":"Enter your email",
+  "txtConfirmEmail":"Confirm email",
+  "txtConfirmEmailPh":"Confirm your email",
+  "txtPassword":"Password",
+  "txtPasswordPh":"Enter your password",
+  "txtConfirmPassword":"Confirm Password",
+  "txtConfirmPasswordPh":"Confirm your password",
+  "btnRegister":"REGISTER",
+  "mailMessage":"Your email will be used to log in to your account",
+  "alertPasswordEasiest":"The password is to easy",
+  "validationEightWrong":"X 8 characters minimum",
+  "validationLowerWrong":"X At least (1) one lower case",
+  "validationUpperWrong":"X At least (1) one upper case",
+  "validationNumberWrong":"X At least (1) one number",
+  "validationSymbolWrong":"X At least (1) one  special character",
+  "validationEightFine":"✓ 8 characters minimum",
+  "validationLowerFine":"✓ At least (1) one lower case",
+  "validationUpperFine":"✓ At least (1) one upper case",
+  "validationNumberFine":"✓ At least (1) one number",
+  "validationSymbolFine":"✓ At least (1) one  special character"
+  },
+
+
+
+  "elibilityBlackWords":{
+    "standard": "Standard"
+  },
+  "changeEmailUserName":{
+    "headerTitle": "CHANGE EMAIL/USERNAME",
+    "emailUsername":"Email/Username",
+    "placeholderemailUsername":"Enter your Username",
+    "newEmail": "New email",
+    "placeholdernewEmail": "Type your new Email/Username",
+    "confirmEmail":"Confirm email",
+    "placeholderconfirmEmail":"Retype your new Email/Username",
+    "btnSave": "SAVE"
+  },
+  "changePassword":
+  {
+      "headerTitle": "CHANGE PASSWORD",
+      "currentPass": "Current Password",
+      "placeholderCurrentPass":"Type your current Password",
+      "newPass":"New Password",
+      "placeholderNewPass":"Type your new Password",
+      "confirmPass":"Confirm Password",
+      "placeholderConfirmPass":"Retype your new Password",
+      "btnSave": "SAVE"
+  },
+  "settings":{
+    "headerTitle": "SETTINGS",
+    "description": "This is the max number of the most recent BOLs that will be showing in the application within the last 90 days",
+    "labelNumberBols": "Max number of BOLs",
+    "subtitle1" :"This is the max number of the most",
+    "subtitle2" :"recent BOLs that will be showing",
+    "subtitle3" :"in the application within the last 90 days",
+    "btnSave":"SAVE"
+  },
+  "alerts":{
+    "tokenUpdated":"Notification Token Updated"
+  },
+  "common": {
+    "ok": "OK!",
+    "cancel": "Cancel",
+    "back": "Back",
+    "sure":"I'm sure",
+    "support":"Support"
+  },
+  "errors": {
+    "invalidEmail": "Invalid email address."
+  },
+  "welcomeScreen": {
+    "poweredBy": "POWERED BY IGNITE",
+    "readyForLaunch": "Ready for launch.",
+    "continue": "CONTINUE"
+  },
+  "loginCredentials": {
+    "labelUsername": "Username",
+    "headerTitle": "LOGIN",
+    "loginButton": "ENTER"
+  },
+  "SignupScreen": {
+    "headerTitle": "LOAD2DAY® DRIVER CONNECT",
+    "registerButton": "REGISTER"
+  },
+  "activationScreen": {
+    "refreshButton": "REFRESH",
+    "longTextHeader":"Your account needs to be activated, please check your email to activate your account. If you haven't recieved an activation email please check the junk folder of your mailbox. If you have already activated your account tap the refresh button."
+  },
+  "termsScreen": {
+    "accept": "ACCEPT"
+  },
+  "demoScreen": {
+    "howTo": "HOW TO",
+    "title": "What’s In This Stack?",
+    "tagLine": "Congratulations, you’ve got a very advanced React Native app template here.  Take advantage of this boilerplate!",
+    "reactotron": "Demo Reactotron",
+    "demoList": "Demo List",
+    "androidReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running, run adb reverse tcp:9090 tcp:9090 from your terminal, and reload the app.",
+    "iosReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app.",
+    "macosReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app.",
+    "webReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app.",
+    "windowsReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app."
+  },
+  "demoListScreen": {
+    "title": "Demo List"
+  },
+  "errorScreen": {
+    "title": "Something went wrong!",
+    "friendlySubtitle": "This is the screen that your users will see in production when an error is thrown. You'll want to customize this message (located in `app/i18n/en.json`) and probably the layout as well (`app/screens/error`). If you want to remove this entirely, check `app/app.tsx` for the <ErrorBoundary> component.",
+    "traceTitle": "Error from %{name} stack",
+    "reset": "RESET APP"
+  },
+  "storybook": {
+    "placeholder": "Placeholder",
+    "field": "Field"
+  },
+  "bolInformation":{
+    "bolInfo": "BOL Information",
+    "bolNumber": "BOL Number: ",
+    "terminal": "Terminal: ",
+    "transDate": "Transaction Date: ",
+    "transRefNum": "Transaction Number: "
+  }
+}

@@ -1,0 +1,393 @@
+{
+    "homeScreen":{
+      "headerTitle": "LOAD2DAY® DRIVER CONNECT",
+      "viewBols": "Overzicht BOLs",
+      "viewLoadEligibility": "Overzicht toelating om te laden",
+      "viewFullMenu": "Volledig Menu"
+    },
+    "profile":{
+      "headerTitle": "PROFIEL",
+      "firstName": "Voornaam:",
+      "lastName": "Familienaam:",
+      "DrivLicence": "Rijbewijs:",
+      "email": "Email:",
+      "changeEmailUserName": "VERANDER EMAIL ADRES/GEBRUIKERSNAAM",
+      "changePassword": "VERANDER WACHTWOORD",
+      "updateNotification": "UPDATE MELDING TOKEN",
+      "logout": "UITLOGGEN ",
+      "dissableAccount": "ACCOUNT VERWIJDEREN"
+    },
+    "generalAlarms":{
+      "alertAppPhysicalDevice":"Je moet een fysiek apparaat gebruiken voor pushmeldingen.",
+      "alertAppNotificationsTurnedOff":"Pushmeldingen zijn uitgeschakeld, zet ze aan in de instellingen om meldingen van nieuwe BOLs te ontvangen.",
+      "alertSuccessNotiTokenUdt":"GELUKT",
+      "alertSuccessNotiTokenUdt2":"Melding token bijgewerkt",
+      "alertTokenNotUpdated": "TOKEN NIET BIJGEWERKT",
+      "alertDeleteAccount": "Ben je zeker dat je je account wil verwijderen?",
+      "alertDeleteAccount2": "Je staat op het punt om je data te verwijderen.",
+      "alertConfirmDisableAccount": "Voor alle duidelijkheid, weet je het zeker ?",
+      "alertConfirmDisableAccount2": "We willen dubbel checken of je echt geen toegang meer wil tot dit account ",
+      "alertConfirmDisableAccount3": "aangezien je niet meer zal kunnen inloggen met deze gegevens.",
+      "alertYourAccountIsSecure":"Jouw account is veilig!",
+      "alertYourAccountIsSecure2":"We hebben je gegevens niet verwijderd.",
+      "alertYourAccountDeletedSuccessfully": "Jouw account werd succesvol verwijderd.",
+      "alertYourAccountDeletedSuccessfully2": "Al jouw gegevens werden verwijderd uit onze diensten. Bedankt voor het gebruik van Load2day® Driver Connect.",
+      "alertYourAccountDeletedFailed": "Jouw account kan niet verwijderd worden.",
+      "alertYourAccountDeletedFailed2": "Sorry, we kunnen jouw account op dit moment niet verwijderen … Probeer het opnieuw.",
+      "alertAppEncounteredError": "Er is een fout opgetreden, probeer opnieuw aub",
+      "alertAppEncounteredError2": "Contacteer de helpdesk bij herhaaldelijk voorkomen van deze foutmelding.",
+      "alertSomeFieldsEmpty": "Sommige velden zijn leeg of hebben ongeldige informatie.",
+      "alertSomeFieldsEmpty2": "Vul alle velden in of selecteer een geldig item voor elk veld.",
+      "alertUserNotFound":"Gebruiker niet gevonden",
+      "alertWeSendYouEmailInstructions":"We hebben je een mail gestuurd met instructies hoe je je wachtwoord kan recupereren.",
+      "alertFieldsEmpty":"Velden zijn leeg.",
+      "alertFieldsEmpty2":"Vul a.u.b. alle verplichte velden in.",
+      "alertCongratulations":"Gefeliciteerd",
+      "alertCongratulations2":"je hebt je succesvol geregistreerd als gebruiker van de Load2day ® Driver Connect, controleer je email om je account te activeren",
+      "alertDataNotMatch":"Gegevens komen niet overeen",
+      "alertDataNotMatch2":"Er zijn geen overeenkomende records in onze database.",
+      "alertUserAlreadyExist":"De gebruiker bestaat al.",
+      "alertUserAlreadyExist2":"De gebruiker die je hebt ingevoerd is al geregistreerd.",
+      "alertEmailsDoNotMatch":"Email adressen matchen niet.",
+      "alertEmailsDoNotMatch2":"Vul hetzelfde email adres in in beide velden aub.",
+      "alertPasswordDoNotMach":"Wachtwoorden komen niet overeen",
+      "alertPasswordDoNotMach2":"Voer in beide velden hetzelfde wachtwoord in aub.",
+      "alertInvalidEmailFormat":"Ongeldig email adres",
+      "alertInvalidEmailFormat2":"Gebruik geldig email adres aub.",
+      "alertInvalidEmailWriteEmail":"Ongeldig email adres, gebruik geldig email adres.",
+      "alertInvalidEmailConfirmEmail":"Ongeldig email adres",
+      "alertInvalidEmailConfirmEmail2":"Gebruik geldig email adres in 'Bevestig email adres'.",
+      "alertSuccessEmailChanged":"GELUKT",
+      "alertSuccessEmailChanged2":"Jouw email/gebruikersnaam is aangepast",
+      "alertSuccessPasswordChanged":"GELUKT, uw wachtwoord is correct gewijzigd",
+  
+      "wrongCurrentPassword": "Huidig wachtwoord niet correct",
+      "accountNotActivated": "Account niet geactiveerd",
+      "accountNotActivated2": "Check je email om je account te activeren aub. ",
+      "accountActivated": "Jouw account werd geactiveerd.",
+      "somethingsWasWorng":"Er ging iets fout. Probeer het nog een keer.",
+      "useTheEmailYouRegistered":"Gebruik het emailadres waarmee je geregistreerd bent",
+      "useTheEmailYouRegistered2":"Ongeldig email adres",
+      "wrongUsernameOrPassword":"Gebruikersnaam of wachtwoord niet correct",
+      "emptyFieldsFillMaxNumOfBols":"Leeg veld",
+      "emptyFieldsFillMaxNumOfBols2":"Vul het maximum aantal BOLs in",
+      "maxNumOfBolsChanged":"Maximum aantal BOLs aangepast",
+      "numbersGreaterThanZero":"Enkel aantallen groter dan 0",
+      "youHaveToAcceptThis":"Je moet accepteren om de app te kunnen gebruiken",
+      "youHaveAcceptedTermsSccessfully":"Je hebt de Terms and Conditions succesvol geaccepteerd ",
+      "successNotificationTokenUpdated":"Retrieving data. Wait a few seconds and try to cut or copy again."
+    },
+    "generalMessages":
+    {
+      "nothingFound": "Zonder resultaat"
+    },
+    "progress":
+    {
+      "bolRefresh": "Ophalen BOLs"
+    },
+    "bigMenu":{
+      "headerTitle": "MENU",
+      "profile": "PROFIEL",
+      "settings": "INSTELLINGEN",
+      "privacyPolicy": "PRIVACY BELEID",
+      "about": "ABOUT"
+    },
+    "smallMenu":{
+      "menu": "Menu",
+      "home": "Home",
+      "bol": "BOL",
+      "eligibility": "Toelating"
+    },
+    "boList":{
+      "headerTitle": "BOL OVERZICHT",
+      "notFound": "GEEN TRANSACTIES GEVONDEN",
+      "placeholderSearch": "Typ hier …",
+      "typeYourOrder":"Voer uw ordernummer in"
+    },
+    "eligibilityFreeScreen":{
+      "headerTitle": "TOELATINGSCHECK OM TE LADEN",
+      "description": "Dit is de Standaard versie van de Load2day Driver Connect app. De Enterprise versie heeft de mogelijkheid om uw toelating tot laden te verifiëren bij deelnemende terminals. Voor informatie over hoe je kan upgraden klik hier. ",
+      "placeholderSearch": "Typ hier …",
+      "subtitle": "Deelnemende terminals"
+    },
+  
+  
+  
+  
+    "eligibilityPaidScreen":{
+      "headerTitle": "TOELATINGSCHECK OM TE LADEN",
+      "description": "Dit is de Standaard versie van de Load2day Driver Connect app. De Enterprise versie heeft de mogelijkheid om uw toelating tot laden te verifiëren bij deelnemende terminals. Voor informatie over hoe je kan upgraden klik hier. ",
+      "placeholderSearch": "Typ hier …",
+      "subtitle": "Deelnemende terminals",
+      "btnLoadRackEligibility":"TOELATINGSCHECK TOT LAADREK ",
+      "btnOrderElegibility": "TOELATINGSCHECK LADEN VAN ORDER ",
+      "descriptionLoadRackEligibility":"Deze functie controleert de geldigheid van de gegevens van de gemaakte selecties (verlopen velden en geblokkeerde records) voor een belading",
+      "descriptionOrderElegibility":"Deze functie controleert de geldigheid van de gegevens van de gemaakte selecties (verlopen velden en geblokkeerde records) voor een bepaald order"
+    },
+    "eligibilityLoad":{
+      "headerTitle": "TOELATINGSCHECK OM TE LADEN",
+      "terminal":"Terminal",
+      "terminalPh": "Voer Terminal in",
+      "suppliers": "Supplier",
+      "suppliersPh": "Voer Supplier in",
+      "customer": "Klant",
+      "customerPh": "Voer klant in ",
+      "account": "Account ",
+      "accountPh": "Voer account in",
+      "destination": "Bestemming",
+      "destinationPh": "Voer bestemming in",
+      "tractorTruck" : "Trekker/Tankwagen",
+      "tractorTruckPh" : "Voer Trekker/Tankwagen in",
+      "trailer1": "Trailer1",
+      "trailer1Ph": "Voer Trailer 1 in",
+      "trailer2": "Trailer 2",
+      "trailer2Ph": "Voer Trailer 2 in",
+      "btnSave": "OPSLAAN",
+      "btnCheckEligibility":"CONTROLEER TOELATING "
+    },
+    "eligibilityLoadResult":{
+      "headerTitle": "TOELATINGSCHECK OM TE LADEN",
+      "headerTitleError": "FOUTEN",
+      "customerData":"Klant gegevens",
+      "supplierData":"Supplier gegevens",
+      "request":"Verzoek",
+      "truckData":"Trekker/Tankwagen gegevens",
+      "trailer1Data":"Trailer 1 gegevens",
+      "trailer2Data":"Trailer 2 gegevens",
+      "accountData":"Account gegevens",
+      "terminalData":"Terminal gegevens",
+      "destinationData":"Bestemming gegevens ",
+      "carrierData":"Transporteur gegevens",
+      "driverData":"Chauffeur gegevens",
+      "VSXData":"VSX gegevens",
+      "passedError":"Gevalideerd",
+      "passed":"Geen fouten gevonden"
+    },
+    "orderEligibility":{
+      "headerTitle": "TOELATINGSCHECK LADEN VAN ORDER",
+      "orderNum": "Order #",
+      "orderNumPh": "Type you Order",
+      "terminal":"Terminal",
+      "terminalPh": "Voer Terminal in",
+      "suppliers": "Supplier",
+      "suppliersPh": "Voer Supplier in",
+      "tractorTruck" : "Trekker/Tankwagen",
+      "tractorTruckPh" : "Voer Trekker/Tankwagen in",
+      "trailer1": "Trailer1",
+      "trailer1Ph": "Voer Trailer 1 in",
+      "trailer2": "Trailer 2",
+      "trailer2Ph": "Voer Trailer 2 in",
+      "btnSave": "OPSLAAN",
+      "btnCheckEligibility":"CONTROLEER TOELATING "
+    },
+    "orderEligibilityResults":{
+      "headerTitle": "TOELATINGSCHECK LADEN VAN ORDER",
+      "headerTitleError": "FOUTEN",
+      "customerData":"Klant gegevens",
+      "supplierData":"Supplier gegevens",
+      "truckData":"Trekker/Tankwagen gegevens",
+      "trailer1Data":"Trailer 1 gegevens",
+      "trailer2Data":"Trailer 2 gegevens",
+      "accountData":"Account gegevens",
+      "terminalData":"Terminal gegevens",
+      "destinationData":"Bestemming gegevens ",
+      "carrierData":"Transporteur gegevens",
+      "driverData":"Chauffeur gegevens",
+      "VSXData":"VSX gegevens",
+      "passedError":"Gevalideerd",
+      "passed":"Geen fouten gevonden",
+      "orderData":"Order gegevens",
+      "request":"Verzoek",
+      "productsToLoad":"Producten om te laden "
+    },
+    "loginScreen":{
+      "headerTitle": "LOG IN",
+      "txtUserName": "Gebruikersnaam",
+      "txtUserNamePh": "Voer je gebruikersnaam in",
+      "txtPassword": "Wachtwoord",
+      "txtPasswordPh": "Voer je wachtwoord in",
+      "btnEnter": "ENTER",
+      "signUp": "Nog niet geregistreerd? REGISTREER!",
+      "forgotUsername": "Gebruikersnaam vergeten",
+      "forgotPassword": "Wachtwoord vergeten",
+      "registered": "REGISTREREN"
+    },
+    "forgotUsername":{
+      "headerTitle": "GEBRUIKERSNAAM VERGETEN",
+      "txtFirstName": "Voornaam",
+      "txtFirstNamePh": "Voer je voornaam in",
+      "txtLastName":"Familienaam",
+      "txtLastNamePh": "Voer je familienaam in",
+      "txtLicense":"Rijbewijs",
+      "txtLicensePh": "Voer je rijbewijsnummer in",
+      "btnGetUsername": "KRIJG GEBRUIKERSNAAM"
+    },
+    "forgotPassword":{
+      "headerTitle": "WACHTWOORD RECUPEREREN",
+      "txtEmailUsername": "Email adres/Gebruikersnaam",
+      "txtEmailUsernamePh": "Voer je gebruikersnaam in",
+      "btnGetPassword": "WACHTWOORD ONTVANGEN"
+    },
+    "showPasswordScreen":{
+      "headerTitle": "WACHTWOORD RECUPEREREN",
+      "paraph1":"We hebben je een mail gestuurd",
+      "paraph2":" met instructies hoe je je ",
+      "paraph3":"wachtwoord kan recupereren."
+    },
+    "showUsernameScreen":{
+      "headerTitle": "HERSTEL GEBRUIKER",
+      "paraph1":"Jouw gebruikersnaam is:"
+    },
+    "changelanguage":{
+      "btnChangeLanguageLogin":"Taal wijzigen",
+      "btnChangeLanguage":"TAAL WIJZIGEN",
+      "btnChangeLanguageSelection":"    Taal selectie    ",
+      "english":"English/Engels",
+      "french":"French/Frans",
+      "german":"German/Duits",
+      "italian":"Italian/Italiaans",
+      "spanish":"Spanish/Spaans",
+      "nederlands":"Dutch/Nederlands",
+      "Polish": "Polish/Pools"
+    },
+    "loginAfterSignup":{
+      "headerTitle": "LOG IN",
+      "txtUserName": "Gebruikersnaam",
+      "txtUserNamePh": "Voer je gebruikersnaam in",
+      "txtPassword": "Wachtwoord",
+      "txtPasswordPh": "Voer je wachtwoord in"
+    },
+    "signup":{
+    "headerTitle": "AANMELDEN",
+    "txtFirstName":"Voornaam",
+    "txtFirstNamePh":"Voer je voornaam in",
+    "txtLastName":"Familienaam",
+    "txtLastNamePh":"Voer je familienaam in",
+    "txtLicense":"Rijbewijs",
+    "txtLicensePh":"Voer je rijbewijsnummer in",
+    "txtEmail":"Email",
+    "txtEmailPh":"Voer je emailadres in",
+    "txtConfirmEmail":"Bevestig je email",
+    "txtConfirmEmailPh":"Herbevestig je emailadres",
+    "txtPassword":"Wachtwoord",
+    "txtPasswordPh":"Voer je wachtwoord in",
+    "txtConfirmPassword":"Bevestig je wachtwoord ",
+    "txtConfirmPasswordPh":"Herbevestig je wachtwoord",
+    "btnRegister":"REGISTREREN",
+    "mailMessage":"Je email wordt gebruikt om in te loggen in je account",
+    "alertPasswordEasiest":"The password is to easy",
+    "validationEightWrong":"X Minstens 8 karakters",
+    "validationLowerWrong":"X Ten minste één (1) kleine letter",
+    "validationUpperWrong":"X Ten minste één (1) hoofdletter",
+    "validationNumberWrong":"X Ten minste één (1) cijfer",
+    "validationSymbolWrong":"X Ten minste één (1) speciaal teken",
+    "validationEightFine":"✓ Minstens 8 karakters",
+    "validationLowerFine":"✓ Ten minste één (1) kleine letter",
+    "validationUpperFine":"✓ Ten minste één (1) hoofdletter",
+    "validationNumberFine":"✓ Ten minste één (1) cijfer",
+    "validationSymbolFine":"✓ Ten minste één (1) speciaal teken"
+    },
+    "privacyPolicy":{
+      "headerTitle": "PRIVACY BELEID"
+    },
+    "elibilityBlackWords":{
+      "standard": "Standard"
+    },
+    "changeEmailUserName":{
+      "headerTitle": "VERANDER EMAIL ADRES/GEBRUIKERSNAAM",
+      "emailUsername":"Email adres/Gebruikersnaam",
+      "placeholderemailUsername":"Voer je gebruikersnaam in",
+      "newEmail": "Nieuw email adres",
+      "placeholdernewEmail": "Voer je nieuw email adres/gebruikersnaam in",
+      "confirmEmail":"Bevestig email adres",
+      "placeholderconfirmEmail":"Voer je nieuw email adres/gebruikersnaam opnieuw in",
+      "btnSave": "OPSLAAN"
+    },
+    "changePassword":
+    {
+        "headerTitle": "VERANDER WACHTWOORD",
+        "currentPass": "Huidig wachtwoord",
+        "placeholderCurrentPass":"Voer je huidig wachtwoord in",
+        "newPass":"Nieuw wachtwoord",
+        "placeholderNewPass":"Voer je nieuw wachtwoord in",
+        "confirmPass":"Bevestig wachtwoord",
+        "placeholderConfirmPass":"Voer je nieuw wachtwoord opnieuw in",
+        "btnSave": "Opslaan"
+    },
+    "alerts":{
+      "tokenUpdated":"GELUKT, melding token bijgewerkt"
+    },
+    "settings":{
+      "headerTitle": "INSTELLINGEN",
+      "description": "Dit is het maximum aantal van de meest recente BOLs van de voorbije 90 dagen dat zal getoond worden in de app ",
+      "labelNumberBols": "Maximum aantal BOLs",
+      "subtitle1" :"Dit is het maximum aantal van de meest ",
+      "subtitle2" :"recente BOLs van de voorbije 90 dagen ",
+      "subtitle3" :"dat zal getoond worden in de app",
+      "btnSave":"OPSLAAN"
+    },
+    "common": {
+      "ok": "OK!",
+      "cancel": "Annuleren",
+      "back": "Achter",
+      "sure":"Ik ben zeker",
+      "support":"Helpdesk"
+    },
+    "errors": {
+      "invalidEmail": "Ongeldig e-mailadres."
+    },
+    "welcomeScreen": {
+      "poweredBy": "POWERED BY IGNITE",
+      "readyForLaunch": "Ready for launch.",
+      "continue": "CONTINUE"
+    },
+    "loginCredentials": {
+      "labelUsername": "Username",
+      "headerTitle": "LOGIN",
+      "loginButton": "ACCEDER"
+    },
+    "SignupScreen": {
+      "headerTitle": "LOAD2DAY® DRIVER CONNECT",
+      "registerButton": "REGISTRO"
+    },
+    "activationScreen": {
+      "refreshButton": "VERNIEUWEN",
+      "longTextHeader":"Jouw account moet geactiveerd zijn, controleer je email om jouw account te activeren. Als je geen activeringsmail hebt ontvangen, controleer dan de map met ongewenste emails van jouw mailbox. Als je je account al hebt geactiveerd, klik op de knop vernieuwen"
+    },
+    "termsScreen": {
+      "accept": "ACEPTO"
+    },
+    "demoScreen": {
+      "howTo": "HOW TO",
+      "title": "What’s In This Stack?",
+      "tagLine": "Congratulations, you’ve got a very advanced React Native app template here.  Take advantage of this boilerplate!",
+      "reactotron": "Demo Reactotron",
+      "demoList": "Demo List",
+      "androidReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running, run adb reverse tcp:9090 tcp:9090 from your terminal, and reload the app.",
+      "iosReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app.",
+      "macosReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app.",
+      "webReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app.",
+      "windowsReactotronHint": "If this doesn't work, ensure the Reactotron desktop app is running and reload app."
+    },
+    "demoListScreen": {
+      "title": "Demo List"
+    },
+    "errorScreen": {
+      "title": "Something went wrong!",
+      "friendlySubtitle": "This is the screen that your users will see in production when an error is thrown. You'll want to customize this message (located in `app/i18n/en.json`) and probably the layout as well (`app/screens/error`). If you want to remove this entirely, check `app/app.tsx` for the <ErrorBoundary> component.",
+      "traceTitle": "Error from %{name} stack",
+      "reset": "RESET APP"
+    },
+    "storybook": {
+      "placeholder": "Placeholder",
+      "field": "Field"
+    },
+    "bolInformation":{
+      "bolInfo": "Información de BOL",
+      "bolNumber": "Número de Bol: ",
+      "terminal": "Terminal: ",
+      "transDate": "Fecha de Transaccion: ",
+      "transRefNum": "Número de Transaccion: "
+    }
+  }
+  
