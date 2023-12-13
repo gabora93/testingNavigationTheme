@@ -1,5 +1,5 @@
 import * as Localization from "expo-localization"
-import {I18n} from "i18n-js"
+import {I18n, TranslateOptions} from "i18n-js"
 import en from "./en.json"
 import ja from "./ja.json"
 import es from "./es.json"
@@ -8,7 +8,6 @@ import fr from "./fr.json"
 import it from "./it.json"
 import nl from "./nl.json"
 import pl from "./pl.json"
-
 export const i18n = new I18n();
 i18n.enableFallback = true;
 i18n.translations = { en, ja, es, de, it,fr,nl,pl }
@@ -37,3 +36,14 @@ type RecursiveKeyOf<TObj extends Record<string, any>> = {
     ? `${TKey}` | `${TKey}.${RecursiveKeyOf<TObj[TKey]>}`
     : `${TKey}`
 }[keyof TObj & string]
+
+
+/**
+ * Translates text.
+ *
+ * @param key The i18n key.
+ */
+export function translate(key: TxKeyPath, options?: TranslateOptions) {
+
+  return key ? i18n.t(key, options) : null
+}

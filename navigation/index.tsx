@@ -8,8 +8,6 @@ import MenuScreen from '../src/screens/MenuScreen';
 import MenuStack from './MenuStack';
 import { Home, FileText, AlignJustify, CheckCircle } from 'lucide-react-native';
 import EliMenuScreen from '../src/screens/EliMenuScreen';
-import { translations } from '../src/i18n/localization';
-import { translate } from "../src/i18n/translate";
 import { i18n } from '../src/i18n/i18n';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const Tab = createBottomTabNavigator();

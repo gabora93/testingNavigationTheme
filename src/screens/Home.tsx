@@ -27,7 +27,7 @@ export default function HomeScreen({ navigation }) {
   })
 
   const StyledButton = styled(ButtonText, {
-    fontWeight: "$extrabold",
+    fontWeight: "$900",
     fontStyle: "normal",
     fontSize: "$lg",
     color: "$white",
