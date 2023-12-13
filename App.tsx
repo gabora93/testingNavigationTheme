@@ -1,37 +1,30 @@
-import { useState, createContext } from 'react';
+import { useState, createContext, useCallback } from 'react';
 import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { ThemeContext } from './src/context/ThemeContext'
 import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { TabNavigator } from './navigation';
 import { GluestackUIProvider, Box } from "@gluestack-ui/themed";
 import { config } from "@gluestack-ui/config";
-import { useFonts } from "expo-font";
-import {
+import { useFonts,
   Inter_400Regular,
   Inter_500Medium,
   Inter_600SemiBold,
   Inter_700Bold,
   Inter_900Black,
 } from "@expo-google-fonts/inter";
+import * as SplashScreen from 'expo-splash-screen';
 
-type ThemeContextType = {
-  colorMode?: "dark" | "light";
-  toggleColorMode?: () => void;
-};
-
-export const ThemeContext = createContext<ThemeContextType>({
-  colorMode: "light",
-  toggleColorMode: () => { },
-});
+SplashScreen.preventAutoHideAsync();
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function App() {
   const [colorMode, setColorMode] = useState<"dark" | "light">("light");
-  const [fontsLoaded] = useFonts({
+  const [fontsLoaded, error] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
     Inter_600SemiBold,
@@ -39,8 +32,17 @@ export default function App() {
     Inter_900Black,
   })
 
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
   if (!fontsLoaded) {
     return null;
+  }
+  if(error){
+    console.log('error',error)
   }
 
   const toggleColorMode = async () => {
@@ -50,7 +52,7 @@ export default function App() {
   return (
     <>
 
-      <NavigationContainer>
+      <NavigationContainer onReady={onLayoutRootView} >
       <SafeAreaProvider>
         <GluestackUIProvider colorMode={colorMode} config={config}>
           <ThemeContext.Provider value={{ colorMode, toggleColorMode }}>

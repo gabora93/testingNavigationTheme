@@ -1,5 +1,5 @@
 import * as Localization from "expo-localization"
-import i18n from "i18n-js"
+import {I18n} from "i18n-js"
 import en from "./en.json"
 import ja from "./ja.json"
 import es from "./es.json"
@@ -9,10 +9,11 @@ import it from "./it.json"
 import nl from "./nl.json"
 import pl from "./pl.json"
 
-i18n.fallbacks = true
+export const i18n = new I18n();
+i18n.enableFallback = true;
 i18n.translations = { en, ja, es, de, it,fr,nl,pl }
  
-i18n.locale = Localization.locale || "en-US"
+i18n.locale =  "es-MX"
 //i18n.locale =  "es-MX"
 //i18n.locale =  "nl-NL"
 //i18n.locale =  "pl-PL"

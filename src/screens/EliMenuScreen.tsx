@@ -8,7 +8,7 @@ import { useColorMode } from "@gluestack-ui/themed";
 import { Header } from "../components/header/Header";
 import ToggleMode from "../components/themeToggler/ToggleMode";
 
-export default function HomeScreen({ navigation }) {
+export default function EliMenuScreen({ navigation }) {
   const StyledText = styled(Text, {
     fontWeight: "$extrabold",
     fontStyle: "normal",
@@ -37,7 +37,6 @@ export default function HomeScreen({ navigation }) {
   })
   return ( 
   <>
-
     <StyledBox flex={1} >
       <Header headerTx='homeScreen.headerTitle'/>
       <StyledText>Home Screen</StyledText>

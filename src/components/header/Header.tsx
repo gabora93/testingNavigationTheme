@@ -1,9 +1,10 @@
 import React from "react";
 import { HeaderProps } from "./header.props"
-import { StatusBar, styled, Button, ButtonText, Box, InfoIcon, ShareIcon, SettingsIcon, Text, ArrowLeftIcon, HStack, Heading } from '@gluestack-ui/themed';
-import { translate } from "../../i18n/";
+import { styled, Button, ButtonText, Box, InfoIcon, ShareIcon, SettingsIcon, ArrowLeftIcon, HStack, Heading, Text } from '@gluestack-ui/themed';
+import { i18n } from '../../i18n/i18n';
 import { Icon } from "@gluestack-ui/themed"
-
+import { translate } from "../../i18n/"
+import { StatusBar } from 'expo-status-bar';
 export function Header(props: HeaderProps) {
   const {
     onLeftPress,
@@ -21,32 +22,37 @@ export function Header(props: HeaderProps) {
   } = props
   const header = headerText || (headerTx && translate(headerTx)) || ""
   const StyledText = styled(Text, {
-    fontFamily: "Inter-Black",
     fontWeight: "$extrabold",
     fontStyle: "normal",
-    fontSize: "$xl",
+    fontSize: "$lg",
     color: "$white",
     _dark: {
       color: "$white",
     },
+  });
+  const StyledHStack = styled(HStack, {
+    justifyContent: "center",
+    height: '$16',
+    backgroundColor: "#1F4F7B",
+    _dark: {
+      backgroundColor: "#1F4F7B",
+    },
   })
+
   return (
     <>
-    <StatusBar backgroundColor="#7CB236" />
-    <Box bg="$violet600"/>
-      <HStack h='$16' justifyContent="center" bg="$darkBlue700" >
-      <HStack alignItems="center" display="none">
-        <>
-        </>
-      </HStack>
-      <HStack alignItems="center">
-        <StyledText>{header}</StyledText>
-      </HStack>
-      <HStack m={8} alignItems="center" display="none">
-        <Icon as={SettingsIcon} color="white"  w="$8" h="$8"/>
-        <Icon as={SettingsIcon} color="white" w="$8" h="$8"/>
+      <StatusBar translucent={false} backgroundColor='#1F4F7B'/>
+      <StyledHStack >
+        <HStack alignItems="center" display="none">
         </HStack>
-      </HStack>
-      </>
+        <HStack alignItems="center">
+          <StyledText>{header}</StyledText>
+        </HStack>
+        <HStack m={8} alignItems="center" display="none">
+          <Icon as={SettingsIcon} color="white" w="$8" h="$8" />
+          <Icon as={SettingsIcon} color="white" w="$8" h="$8" />
+        </HStack>
+      </StyledHStack>
+    </>
   )
 }
