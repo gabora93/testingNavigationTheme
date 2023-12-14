@@ -3,11 +3,10 @@ import { Header } from "../components/header/Header";
 import ButtonGroup from '../components/buttons/ButtonGroup';
 import { menuButtons } from '../utilities/menuButtons';
 
-export default function MenuScreen({ route, navigation }) {
+export default function SettingsScreen({ route, navigation }) {
     return (
         <StyledBox flex={1} >
-            <Header headerTx='bigMenu.headerTitle' />
-          <ButtonGroup buttons={menuButtons} navigation={navigation} space={'xl'} buttonHeight={'$1/6'} />
+            <Header headerTx='bigMenu.settings' withBack={true} onLeftPress={() => navigation.goBack()} />
         </StyledBox>
     )
 };

@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet, StyleProp, TextStyle} from 'react-native';
-import { ShareIcon, Icon, Text, FlatList, ScrollView} from '@gluestack-ui/themed';
+import { ShareIcon, Icon, Text, FlatList, ScrollView, View} from '@gluestack-ui/themed';
 import HomeScreen from "../src/screens/Home";
 import BOLScreen from "../src/screens/Bols";
 import DetailsScreen from "../src/screens/Details";
@@ -10,37 +10,64 @@ import { Home, FileText, AlignJustify, CheckCircle } from 'lucide-react-native';
 import EliMenuScreen from '../src/screens/EliMenuScreen';
 import { i18n } from '../src/i18n/i18n';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
+
+import { StyledLinearGradient } from '../src/components/styledComponents/StyledLinearGradient';
+import  GradientIcon  from '../src/components/styledComponents/GradientIcon';
+import  GradientText  from '../src/components/styledComponents/GradientText';
 const Tab = createBottomTabNavigator();
 
 export const TabNavigator = () => {
   const insets = useSafeAreaInsets();
+  console.log('inset',insets)
     return (
         <Tab.Navigator screenOptions={({ route }) => ({
-          tabBarStyle: { height: 70 + insets.bottom, width:'100%', paddingBottom:9 },
+          tabBarLabel: ({ focused, color, size }) => {
+            let label;
+            if (route.name === 'Home') {
+              label = focused ? <GradientText colors={['white', 'cyan']} text={i18n.t(`smallMenu.home`)}/> : <GradientText colors={['#1F4F7B', 'white']} text={i18n.t(`smallMenu.home`)}/> 
+            }
+            else if (route.name === 'Bols') {
+              label = focused ? <GradientText colors={['white', 'cyan']} text={i18n.t(`smallMenu.bol`)}></GradientText> : <GradientText colors={['#1F4F7B', 'white']} text={i18n.t(`smallMenu.bol`)}/> 
+            }
+            else if (route.name === 'Menu') {
+              label = focused ? <GradientText colors={['white', 'cyan']} text={i18n.t(`smallMenu.menu`)}></GradientText> : <GradientText colors={['#1F4F7B', 'white']} text={i18n.t(`smallMenu.menu`)}/> 
+            }
+            else if (route.name === 'Eligilibility') {
+              label = focused ? <GradientText colors={['white', 'cyan']} text={i18n.t(`smallMenu.eligibility`)}></GradientText> : <GradientText colors={['#1F4F7B', 'white']} text={i18n.t(`smallMenu.eligibility`)}/> 
+            }
+            return label
+          },
+          tabBarStyle: { height: 70 , width:'100%', paddingBottom:2},
             tabBarIcon: ({ focused, color, size }) => {
               let iconName;
               if (route.name === 'Home') {
                 iconName = focused ? Home : Home;
-              } else if (route.name === 'Bills') {
+              } else if (route.name === 'Bols') {
                 iconName = focused ? FileText  : FileText;
               }else if (route.name === 'Menu') {
                 iconName = focused ? AlignJustify  : AlignJustify;
               }else if (route.name === 'Eligilibility') {
                 iconName = focused ? CheckCircle   : CheckCircle;
               }
-              return <Icon as={iconName}  color={color} size={30} />;
-            },
-            tabBarActiveTintColor: '#1F4F7B',
+              return focused ?  <GradientIcon colors={['cyan', 'white']} as={iconName}/> :  <GradientIcon colors={['white', 'white']} as={iconName}/>;
+            }, tabBarBackground: () => (
+              <View style={{ flex: 1 }}>
+                <StyledLinearGradient locations={[0.5, 0.1]}
+                  start={{ x: 0, y: 1 }}
+                  end={{ x: 0, y: 0 }}
+                  colors={["#133352", "#1F4F7B"]}
+                  style={{ height: 70 }}
+                />
+              </View>
+            ),
+            tabBarActiveTintColor: 'white',
             tabBarInactiveTintColor: 'gray',
           })}>
-            <Tab.Screen name="Home" component={HomeScreen} options={{headerShown: false, tabBarLabel: i18n.t('smallMenu.home'),
-         
-         
-          tabBarAllowFontScaling:true,
-          tabBarItemStyle:{borderColor: 'red'},}} />
-            <Tab.Screen name="Bills" component={BOLScreen} options={{headerShown: false, tabBarLabel: i18n.t('smallMenu.bol') }} />
-            <Tab.Screen name="Eligilibility" component={EliMenuScreen} options={{headerShown: false, tabBarLabel: i18n.t('smallMenu.eligibility')  }} />
-            <Tab.Screen name="Menu" component={MenuStack} options={{headerShown: false, tabBarLabel: i18n.t('smallMenu.menu')  }}/>
+            <Tab.Screen name="Home" component={HomeScreen} options={{headerShown: false, }} />
+            <Tab.Screen name="Bols" component={BOLScreen} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'} }} />
+            <Tab.Screen name="Eligilibility" component={EliMenuScreen} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'}  }} />
+            <Tab.Screen name="Menu" component={MenuStack} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'} }}/>
         </Tab.Navigator>
     );
 };

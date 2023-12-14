@@ -17,6 +17,8 @@ export interface HeaderProps {
   bolViewer?: Boolean
 
   shareIcon?: Boolean
+  
+  withBack?: Boolean
   /**
    * Icon that should appear on the left
    */

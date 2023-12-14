@@ -5,15 +5,13 @@ export const StyledButton = styled(
   Pressable,
   {
     rounded: "$lg",
-    py: "$3",
-    px: "$9",
     variants: {
       variant: {
-        solid: { bg: "$darkBlue600", _dark:{bg:"$darkBlue600" } },
+        solid: { bg: "#1F4F7B", _dark:{bg:"#1F4F7B" } },
         outline: {
-          bg: "$darkBlue600",
+          bg: "#1F4F7B",
           borderWidth: "$2",
-          borderColor: "$borderLight100", _dark:{bg:"$darkBlue900" }
+          borderColor: "$borderLight100", _dark:{bg:"#1F4F7B" }
           
         },
       },

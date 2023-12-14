@@ -12,9 +12,9 @@ export const i18n = new I18n();
 i18n.enableFallback = true;
 i18n.translations = { en, ja, es, de, it,fr,nl,pl }
  
-i18n.locale =  "es-MX"
+i18n.locale =  "en-US"
 //i18n.locale =  "es-MX"
-//i18n.locale =  "nl-NL"
+// i18n.locale =  "nl-NL"
 //i18n.locale =  "pl-PL"
 //i18n.locale =  "de-DE"
 //i18n.locale =  "fr-FR"

@@ -1,19 +1,21 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import DetailsScreen from "../src/screens/Details";
 import MenuScreen from "../src/screens/MenuScreen";
+import ProfileScreen from "../src/screens/ProfileScreen";
+import SettingsScreen from "../src/screens/SettingsScreen";
+import AboutScreen from "../src/screens/AboutScreen";
+import PrivacyPolicyScreen from "../src/screens/PrivacyPolicyScreen";
 
-const FeedStack = createNativeStackNavigator();
-
+const StackMenu = createNativeStackNavigator();
 
 export default function MenuStack(){
     return(
-        <FeedStack.Navigator>
-        <FeedStack.Screen
-          name="MenuScreen"
-          component={MenuScreen}
-          options={{ headerShown: false }}
+        <StackMenu.Navigator>
+        <StackMenu.Screen name="Menu"component={MenuScreen} options={{ headerShown: false }}
         />
-        <FeedStack.Screen name="Details" component={DetailsScreen} />
-      </FeedStack.Navigator>
+        <StackMenu.Screen name="profile" component={ProfileScreen} options={{headerShown: false }}  />
+        <StackMenu.Screen name="settings" component={SettingsScreen} options={{headerShown: false }}  />
+        <StackMenu.Screen name="about" component={AboutScreen} options={{headerShown: false }}  />
+        <StackMenu.Screen name="privacy_policy" component={PrivacyPolicyScreen} options={{headerShown: false }}  />
+      </StackMenu.Navigator>
     )
 }

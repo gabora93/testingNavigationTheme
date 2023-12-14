@@ -2634,6 +2634,11 @@
     prompts "^2.4.0"
     semver "^7.5.2"
 
+"@react-native-masked-view/masked-view@0.2.9":
+  version "0.2.9"
+  resolved "https://registry.yarnpkg.com/@react-native-masked-view/masked-view/-/masked-view-0.2.9.tgz#723a7a076d56b8f5f3fda076eaa5b6b82988e854"
+  integrity sha512-Hs4vKBKj+15VxHZHFtMaFWSBxXoOE5Ea8saoigWhahp8Mepssm0ezU+2pTl7DK9z8Y9s5uOl/aPb4QmBZ3R3Zw==
+
 "@react-native/assets-registry@^0.72.0":
   version "0.72.0"
   resolved "https://registry.yarnpkg.com/@react-native/assets-registry/-/assets-registry-0.72.0.tgz#c82a76a1d86ec0c3907be76f7faf97a32bbed05d"
@@ -4541,7 +4546,7 @@ expo-keep-awake@~12.3.0:
   resolved "https://registry.yarnpkg.com/expo-keep-awake/-/expo-keep-awake-12.3.0.tgz#c42449ae19c993274ddc43aafa618792b6aec408"
   integrity sha512-ujiJg1p9EdCOYS05jh5PtUrfiZnK0yyLy+UewzqrjUqIT8eAGMQbkfOn3C3fHE7AKd5AefSMzJnS3lYZcZYHDw==
 
-expo-linear-gradient@12.3.0:
+expo-linear-gradient@12.3.0, expo-linear-gradient@~12.3.0:
   version "12.3.0"
   resolved "https://registry.yarnpkg.com/expo-linear-gradient/-/expo-linear-gradient-12.3.0.tgz#7abd8fedbf0138c86805aebbdfbbf5e5fa865f19"
   integrity sha512-f9e+Oxe5z7fNQarTBZXilMyswlkbYWQHONVfq8MqmiEnW3h9XsxxmVJLG8uVQSQPUsbW+x1UUT/tnU6mkMWeLg==
