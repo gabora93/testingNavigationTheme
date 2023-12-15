@@ -17,11 +17,27 @@ import  GradientIcon  from '../src/components/styledComponents/GradientIcon';
 import  GradientText  from '../src/components/styledComponents/GradientText';
 const Tab = createBottomTabNavigator();
 
+const config = {
+  animation: 'spring',
+  config: {
+    stiffness: 1000,
+    damping: 500,
+    mass: 3,
+    overshootClamping: true,
+    restDisplacementThreshold: 0.01,
+    restSpeedThreshold: 0.01,
+  },
+};
+
 export const TabNavigator = () => {
   const insets = useSafeAreaInsets();
   console.log('inset',insets)
     return (
         <Tab.Navigator screenOptions={({ route }) => ({
+          animationEnabled: true,
+          swipeEnabled : true,
+          tabBarHideOnKeyboard: true,
+          keyboardHidesTabBar: true,
           tabBarLabel: ({ focused, color, size }) => {
             let label;
             if (route.name === 'Home') {
@@ -64,8 +80,11 @@ export const TabNavigator = () => {
             tabBarActiveTintColor: 'white',
             tabBarInactiveTintColor: 'gray',
           })}>
-            <Tab.Screen name="Home" component={HomeScreen} options={{headerShown: false, }} />
-            <Tab.Screen name="Bols" component={BOLScreen} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'} }} />
+            <Tab.Screen name="Home" component={HomeScreen} options={{headerShown: false }} />
+            <Tab.Screen name="Bols" component={BOLScreen} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'}, transitionSpec: {
+      open: config,
+      close: config,
+    }, }} />
             <Tab.Screen name="Eligilibility" component={EliMenuScreen} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'}  }} />
             <Tab.Screen name="Menu" component={MenuStack} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'} }}/>
         </Tab.Navigator>

@@ -10,8 +10,10 @@ const StackMenu = createNativeStackNavigator();
 export default function MenuStack(){
     return(
         <StackMenu.Navigator>
-        <StackMenu.Screen name="Menu"component={MenuScreen} options={{ headerShown: false }}
-        />
+        <StackMenu.Screen name="Menu"component={MenuScreen} options={{ headerShown: false , transitionSpec: {
+      open: config,
+      close: config,
+    },}}/>
         <StackMenu.Screen name="profile" component={ProfileScreen} options={{headerShown: false }}  />
         <StackMenu.Screen name="settings" component={SettingsScreen} options={{headerShown: false }}  />
         <StackMenu.Screen name="about" component={AboutScreen} options={{headerShown: false }}  />
