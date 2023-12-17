@@ -46,7 +46,7 @@ export const TabNavigator = () => {
             else if (route.name === 'Bols') {
               label = focused ? <GradientText colors={['white', 'cyan']} text={i18n.t(`smallMenu.bol`)}></GradientText> : <GradientText colors={['#1F4F7B', 'white']} text={i18n.t(`smallMenu.bol`)}/> 
             }
-            else if (route.name === 'Menu') {
+            else if (route.name === 'MenuStack') {
               label = focused ? <GradientText colors={['white', 'cyan']} text={i18n.t(`smallMenu.menu`)}></GradientText> : <GradientText colors={['#1F4F7B', 'white']} text={i18n.t(`smallMenu.menu`)}/> 
             }
             else if (route.name === 'Eligilibility') {
@@ -61,7 +61,7 @@ export const TabNavigator = () => {
                 iconName = focused ? Home : Home;
               } else if (route.name === 'Bols') {
                 iconName = focused ? FileText  : FileText;
-              }else if (route.name === 'Menu') {
+              }else if (route.name === 'MenuStack') {
                 iconName = focused ? AlignJustify  : AlignJustify;
               }else if (route.name === 'Eligilibility') {
                 iconName = focused ? CheckCircle   : CheckCircle;
@@ -81,12 +81,9 @@ export const TabNavigator = () => {
             tabBarInactiveTintColor: 'gray',
           })}>
             <Tab.Screen name="Home" component={HomeScreen} options={{headerShown: false }} />
-            <Tab.Screen name="Bols" component={BOLScreen} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'}, transitionSpec: {
-      open: config,
-      close: config,
-    }, }} />
+            <Tab.Screen name="Bols" component={BOLScreen} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'} }} />
             <Tab.Screen name="Eligilibility" component={EliMenuScreen} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'}  }} />
-            <Tab.Screen name="Menu" component={MenuStack} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'} }}/>
+            <Tab.Screen name="MenuStack" component={MenuStack} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'} }}/>
         </Tab.Navigator>
     );
 };

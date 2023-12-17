@@ -7,7 +7,6 @@ const size = 40
 
 const GradientIcon = (props) => {
     const { colors, size, as } = props;
-    console.log(colors)
   return (
 <MaskedView
       style={{ flex: 1, flexDirection: 'row', height: '100%' }}

@@ -14,4 +14,4 @@ const spin = () => {
     ).start(() => spin());
   };
 
-  export {  spin}
+  export { spin}

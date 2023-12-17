@@ -1,42 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { Icon, ButtonText, Box, styled, Pressable, VStack, Center, HStack } from '@gluestack-ui/themed';
+import { Icon, ButtonText, Box, styled, Pressable, VStack, Center, HStack, View, Text } from '@gluestack-ui/themed';
 import { Menu, FileText, CheckCheck, Container } from 'lucide-react-native';
 import { Header } from "../components/header/Header";
 import { i18n } from '../i18n/i18n';
 import { StyledBox, StyledText } from '../components/styledComponents/index';
-export type PressableType = {
-  hovered?: boolean | undefined;
-  pressed?: boolean | undefined;
-  focused?: boolean | undefined;
-  focusVisible?: boolean | undefined;
-  disabled?: boolean | undefined;
-}
+import { PressableType } from '../types/types';
 
 export default function HomeScreen({ navigation }) {
-
-
-
-  const StyledText = styled(Text, {
-    fontWeight: "$extrabold",
-    fontStyle: "normal",
-    fontSize: "$lg",
-    color: "$white",
-    _dark: {
-      color: "$white",
-    },
-  })
-
   return (
     <>
-
       <StyledBox flex={1} >
         <Header headerTx='homeScreen.headerTitle' />
         <HStack justifyContent='center' alignItems="center" flex={1} marginLeft={20}>
           <VStack h="$full" w="$full" justifyContent='center'>
-
             <VStack h="$full" w="$full" justifyContent='center' >
-
               <Pressable flex={0.5} justifyContent='flex-end' onPress={() => { navigation.navigate('Bols') }}  >
                 {({ pressed }: PressableType) =>
                   <>
@@ -49,11 +25,9 @@ export default function HomeScreen({ navigation }) {
                         <StyledText color={pressed ? "pink" : "black"}>{i18n.t('homeScreen.viewBols')}</StyledText>
                       </VStack>
                     </HStack>
-
                   </>
                 }
               </Pressable>
-
               <Pressable flex={0.5} justifyContent='center' onPress={() => { navigation.navigate('Bols') }}  >
                 {({ pressed }: PressableType) =>
                   <>
@@ -81,8 +55,7 @@ export default function HomeScreen({ navigation }) {
                   </>
                 }
               </Pressable>
-
-              <Pressable flex={1} justifyContent='flex-start' onPress={() => { navigation.navigate('Bols') }}  >
+              <Pressable flex={1} justifyContent='flex-start' onPress={() => { navigation.navigate('MenuStack') }}  >
                 {({ pressed }: PressableType) =>
                   <>
                     <HStack m={10} >

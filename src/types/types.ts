@@ -1,8 +1,6 @@
 export interface ServerData {
     data: Data;
 }
-
-
 export interface TokenData {
     respid: string;
     command: string;
@@ -14,7 +12,6 @@ export interface TokenData {
     error: Error[];
     path: any[];
 }
-
 export interface Data {
     respid: string;
     command: string;
@@ -83,5 +80,14 @@ export interface BLOBROOT {
     TransTime: string
     doc_no: string
     unformattedDate: string
+  }
+  
+
+  export type PressableType = {
+    hovered?: boolean | undefined;
+    pressed?: boolean | undefined;
+    focused?: boolean | undefined;
+    focusVisible?: boolean | undefined;
+    disabled?: boolean | undefined;
   }
   

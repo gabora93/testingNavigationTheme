@@ -7,7 +7,6 @@ const size = 40
 
 const GradientText = (props) => {
     const { colors, size, as, text } = props;
-    console.log(colors)
   return (
 <MaskedView
       style={{ flex: 1, flexDirection: 'row', height: '100%' }}

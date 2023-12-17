@@ -7,17 +7,14 @@ import PrivacyPolicyScreen from "../src/screens/PrivacyPolicyScreen";
 
 const StackMenu = createNativeStackNavigator();
 
-export default function MenuStack(){
-    return(
-        <StackMenu.Navigator>
-        <StackMenu.Screen name="Menu"component={MenuScreen} options={{ headerShown: false , transitionSpec: {
-      open: config,
-      close: config,
-    },}}/>
-        <StackMenu.Screen name="profile" component={ProfileScreen} options={{headerShown: false }}  />
-        <StackMenu.Screen name="settings" component={SettingsScreen} options={{headerShown: false }}  />
-        <StackMenu.Screen name="about" component={AboutScreen} options={{headerShown: false }}  />
-        <StackMenu.Screen name="privacy_policy" component={PrivacyPolicyScreen} options={{headerShown: false }}  />
-      </StackMenu.Navigator>
-    )
+export default function MenuStack() {
+  return (
+    <StackMenu.Navigator screenOptions={{ animation: 'slide_from_right', headerShown: false }}>
+      <StackMenu.Screen name="Menu" component={MenuScreen} />
+      <StackMenu.Screen name="profile" component={ProfileScreen} />
+      <StackMenu.Screen name="settings" component={SettingsScreen} />
+      <StackMenu.Screen name="about" component={AboutScreen} />
+      <StackMenu.Screen name="privacy_policy" component={PrivacyPolicyScreen} />
+    </StackMenu.Navigator>
+  )
 }
