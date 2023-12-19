@@ -12,7 +12,7 @@ export default function HomeScreen({ navigation }) {
         <Header headerTx='homeScreen.headerTitle' />
         <HStack justifyContent='center' alignItems="center" flex={1} marginLeft={20}>
           <VStack h="$full" w="$full" justifyContent='center'>
-            <VStack h="$full" w="$full" justifyContent='center' >
+          
               <Pressable flex={0.5} justifyContent='flex-end' onPress={() => { navigation.navigate('Bols') }}  >
                 {({ pressed }: PressableType) =>
                   <>
@@ -75,7 +75,7 @@ export default function HomeScreen({ navigation }) {
                 }
               </Pressable>
               {/* <ToggleMode /> */}
-            </VStack>
+           
           </VStack>
         </HStack>
       </StyledBox>

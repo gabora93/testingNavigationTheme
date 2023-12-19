@@ -11,6 +11,8 @@ import { rotation } from "../animations/animatedValues";
 import { DatePickerModal } from 'react-native-paper-dates';
 import moment from "moment";
 import { de, en, es, fr, it, nl, pl, registerTranslation, TranslationsType } from 'react-native-paper-dates';
+import { DocumentList } from '../components/DocumentList/DocumentList';
+import PDFIcon from "../components/DocumentList/PDFIcon";
 
 export default function BOLScreen({ navigation }) {
 
@@ -139,48 +141,64 @@ export default function BOLScreen({ navigation }) {
 
   return (
     <>
-      <StyledBox flex={1} >
+      <StyledBox flex={1} borderWidth={1} borderColor="pink" >
         <Header headerTx='boList.headerTitle' withBack={true} onLeftPress={() => navigation.goBack()} />
-        <HStack>
-          <HStack flex={1} $light-bg='#e0e8ee'>
-            <HStack flex={5} >
-              <View flex={1}>
-                <SearchBar
-                  value={searchText}
-                  onChangeText={(text: string) => setSearchText(text)}
-                  onClear={() => setSearchText('')}
-                  round
-                  lightTheme
-                  searchIcon={{ size: 24 }}
-                  inputContainerStyle={{ backgroundColor: 'white' }}
-                  leftIconContainerStyle={{ backgroundColor: 'white' }}
-                  inputStyle={{ backgroundColor: 'white' }}
-                />
-              </View>
-            </HStack>
+        <VStack>
+          {/* searchbar */}
+          <HStack>
+            <HStack flex={1} $light-bg='#e0e8ee'>
+              <HStack flex={5} >
+                <View flex={1}>
+                  <SearchBar
+                    value={searchText}
+                    onChangeText={(text: string) => setSearchText(text)}
+                    onClear={() => setSearchText('')}
+                    round
+                    lightTheme
+                    searchIcon={{ size: 24 }}
+                    inputContainerStyle={{ backgroundColor: 'white' }}
+                    leftIconContainerStyle={{ backgroundColor: 'white' }}
+                    inputStyle={{ backgroundColor: 'white' }}
+                  />
+                </View>
+              </HStack>
 
-            <HStack flex={1.5} >
-              <Pressable onPress={() => { dateRangeSetted ? removeDateRange() : setRangeOpen(true) }} justifyContent='center'>
-                {dateRangeSetted ?
-                  <Icon as={CalendarMinus} sx={{ _dark: { color: '' }, _light: { color: '#1F4F7B' } }} size={40} />
-                  : <Icon as={CalendarPlus} sx={{ _dark: { color: '' }, _light: { color: '#1F4F7B' } }} size={40} />
-                }
-              </Pressable>
-              <Pressable onPress={() => { spin() }} justifyContent='center'>
-                <Animated.View style={[{ transform: [{ rotate }] }]} >
-                  <Icon as={RefreshCcw} sx={{ _dark: { color: '' }, _light: { color: '#1F4F7B' } }} size={40} />
-                </Animated.View>
-              </Pressable>
+              <HStack flex={1.5} >
+                <Pressable onPress={() => { dateRangeSetted ? removeDateRange() : setRangeOpen(true) }} justifyContent='center'>
+                  {dateRangeSetted ?
+                    <Icon as={CalendarMinus} sx={{ _dark: { color: '' }, _light: { color: '#1F4F7B' } }} size={40} />
+                    : <Icon as={CalendarPlus} sx={{ _dark: { color: '' }, _light: { color: '#1F4F7B' } }} size={40} />
+                  }
+                </Pressable>
+                <Pressable onPress={() => { spin() }} justifyContent='center'>
+                  <Animated.View style={[{ transform: [{ rotate }] }]} >
+                    <Icon as={RefreshCcw} sx={{ _dark: { color: '' }, _light: { color: '#1F4F7B' } }} size={40} />
+                  </Animated.View>
+                </Pressable>
+              </HStack>
             </HStack>
           </HStack>
-        </HStack>
-        <VStack >
-          <Text>s</Text>
-          <Text>s</Text>
-          <Text>s</Text>
-          <Text>s</Text>
-          <Text>s</Text>
+          {/* searchbar */}
+          {/* <HStack h="13%"  borderWidth={3} borderColor="cyan" alignItems="center">
+              <VStack borderRightWidth={1} borderColor="black" h="$4/6" w="$1/6" justifyContent="center" alignItems="center">
+              <Icon as={PDFIcon} size={20} />
+              <Text>hosla</Text>
+              </VStack>
+              <VStack borderRightWidth={1} borderColor="red" w="$4/6">
+              <Text>hosla</Text>
+              </VStack>
+              <VStack borderRightWidth={1} borderColor="red" w="$1/6">
+              <Text>hola</Text>
+              </VStack>
+            </HStack> */}
+          {/* list */}
+          <VStack>
+            <DocumentList />
+          </VStack>
+          {/* list  */}
+
         </VStack>
+
       </StyledBox>
       <DatePickerModal
         validRange={{ startDate: moment().subtract(90, "days").toDate(), endDate: new Date() }}

@@ -28,11 +28,9 @@ export function Header(props: HeaderProps) {
   const header = headerText || (headerTx && translate(headerTx)) || ""
   return (
     <>
-
       <StatusBar translucent={false} backgroundColor='#1F4F7B' />
       <StyledLinearGradient justifyContent="space-between" start={[1, 1]} end={[1, 0]} colors={['#1c3c59', '#1f4f7b']}>
         <StyledHS px="$4" justifyContent="space-between" alignItems="center" w="100%" >
-
           <HStack alignItems="center"  flex={1}>
             {withBack ? (
               <Pressable onPress={onLeftPress}>

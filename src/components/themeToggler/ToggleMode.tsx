@@ -10,7 +10,7 @@ const ToggleMode = () => {
     <Pressable onPress={toggleColorMode}>
       <Icon
         as={colorMode === "dark" ? SunIcon : MoonIcon}
-        size="xl"
+        size={10}
         color="$backgroundLight700"
         sx={{
           _dark: {
