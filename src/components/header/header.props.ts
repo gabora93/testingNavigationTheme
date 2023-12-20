@@ -32,12 +32,15 @@ export interface HeaderProps {
   /**
    * Icon that should appear on the right
    */
-  rightIcon?: IconTypes
+  rightButtons?: boolean
 
   /**
    * What happens when you press the right icon
    */
   onRightPress?(): void
+
+
+  onSettingsPress?(): void
 
  /**
    * What happens when you press the share icon

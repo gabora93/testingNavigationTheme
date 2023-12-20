@@ -7,6 +7,7 @@ import { translate } from "../../i18n/"
 import { StatusBar } from 'expo-status-bar';
 import { StyledHS, StyledText } from '../styledComponents/index';
 import { StyledLinearGradient } from '../styledComponents/StyledLinearGradient';
+import { Share2, Settings } from 'lucide-react-native';
 import GradientIcon from '../styledComponents/GradientIcon';
 
 export function Header(props: HeaderProps) {
@@ -14,7 +15,8 @@ export function Header(props: HeaderProps) {
     onLeftPress,
     onRightPress,
     onSharePress,
-    rightIcon,
+    onSettingsPress,
+    rightButtons,
     leftIcon,
     withBack,
     headerText,
@@ -30,21 +32,35 @@ export function Header(props: HeaderProps) {
     <>
       <StatusBar translucent={false} backgroundColor='#1F4F7B' />
       <StyledLinearGradient justifyContent="space-between" start={[1, 1]} end={[1, 0]} colors={['#1c3c59', '#1f4f7b']}>
-        <StyledHS px="$4" justifyContent="space-between" alignItems="center" w="100%" >
-          <HStack alignItems="center"  flex={1}>
+
+        <StyledHS px="$1" justifyContent="space-between" alignItems="center" w="100%"  >
+          <HStack alignItems="center" flex={1} >
             {withBack ? (
               <Pressable onPress={onLeftPress}>
                 <Icon as={ArrowLeftIcon} color="white" w="$8" h="$8" />
               </Pressable>
-            ) : (<View  />)}
+            ) : (<View />)}
           </HStack>
 
-          <HStack   justifyContent="center" >
+          <HStack justifyContent="center" >
             <StyledText>{header}</StyledText>
           </HStack>
 
-          <HStack alignItems="center" flex={1} justifyContent="center" >
-            <View />
+          <HStack alignItems="center" flex={1} justifyContent="flex-end" space="xl" >
+            {rightButtons ?
+              <>
+                <Pressable onPress={onSharePress}>
+                  <Icon as={Share2} sx={{ _dark: { color: '' }, _light: { color: 'white' } }} size={40} />
+                </Pressable>
+                <Pressable onPress={onSettingsPress}>
+                  <Icon as={Settings} sx={{ _dark: { color: '' }, _light: { color: 'white' } }} size={40} />
+                </Pressable>
+              </> :
+              <>
+              </>
+
+
+            }
           </HStack>
 
 

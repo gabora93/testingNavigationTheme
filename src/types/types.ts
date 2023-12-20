@@ -91,3 +91,9 @@ export interface BLOBROOT {
     disabled?: boolean | undefined;
   }
   
+  export interface DATAA {
+    id: number;
+    avatarUrl:  string;
+    fullName:   string;
+    recentText: string;
+  }

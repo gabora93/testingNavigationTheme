@@ -1,11 +1,11 @@
-import React, { FC, useState, useCallback } from "react";
-import { TextStyle, Dimensions, ViewStyle, Platform, TouchableOpacity, StyleSheet, FlatList, LogBox, Animated, Easing } from "react-native"
+import React, { FC, useState, useCallback, useEffect } from "react";
+import { TextStyle, Dimensions, ViewStyle, Platform, TouchableOpacity, StyleSheet, FlatList, LogBox, Animated, Easing, ActivityIndicator } from "react-native"
 import { StyledBox } from '../components/styledComponents/index';
 import { Header } from "../components/header/Header";
 import { SearchBar } from '@rneui/themed';
 import { Button, ButtonText, Box, Pressable, Icon, HStack, VStack, Heading, Text, View } from '@gluestack-ui/themed';
 import { Menu, RefreshCcw, CalendarMinus, CalendarPlus } from 'lucide-react-native';
-import { BOL } from "../types/types";
+import { BOL, DATAA } from "../types/types";
 import { spin } from "../animations/spin";
 import { rotation } from "../animations/animatedValues";
 import { DatePickerModal } from 'react-native-paper-dates';
@@ -13,7 +13,8 @@ import moment from "moment";
 import { de, en, es, fr, it, nl, pl, registerTranslation, TranslationsType } from 'react-native-paper-dates';
 import { DocumentList } from '../components/DocumentList/DocumentList';
 import PDFIcon from "../components/DocumentList/PDFIcon";
-
+import { DATAJSON } from "../components/DocumentList/data";
+import  Parent  from '../components/DocumentList/Parent';
 export default function BOLScreen({ navigation }) {
 
   const locales: [string, TranslationsType][] = [
@@ -40,10 +41,10 @@ export default function BOLScreen({ navigation }) {
       console.log('Apply text filter')
       console.log('SEARCH TEXT::::::::::::', searchText)
       console.log('BOLIST', filteredItems)
-      filteredItems = filteredItems.filter((item: BOL) =>
-        item.Terminal.toUpperCase().includes(searchText.toUpperCase()) ||
-        item.doc_no.toUpperCase().includes(searchText.toUpperCase()) ||
-        item.truck.toUpperCase().includes(searchText.toUpperCase())
+      filteredItems = data.filter((item: DATAA) =>
+        item.avatarUrl.toUpperCase().includes(searchText.toUpperCase()) ||
+        item.recentText.toUpperCase().includes(searchText.toUpperCase()) ||
+        item.fullName.toUpperCase().includes(searchText.toUpperCase())
       );
       console.log('filteredItems', filteredItems)
     }
@@ -74,6 +75,7 @@ export default function BOLScreen({ navigation }) {
         console.log("filteredItems after filter::", filteredItems)
       };
     }
+    console.log("filteredItems after filter::", filteredItems)
     setFilteredData(filteredItems);
   };
 
@@ -82,6 +84,33 @@ export default function BOLScreen({ navigation }) {
 
   //state for bols data
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      setError(null);
+      try {
+   
+        const response = await fetch('https://mpaccd5d24bf776f73a2.free.beeceptor.com/data');
+        const result = await response.json();
+        console.log(result)
+        setData(result); // 
+        setFilteredData(result);
+        setIsLoading(false)
+        setEmptyBOLS(false)
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array means this effect runs once on mount
+
   const [filteredData, setFilteredData] = useState<BOL[]>([]);
   const [searchText, setSearchText] = useState('');
   const [startDate, setStartDate] = useState(null);
@@ -90,8 +119,6 @@ export default function BOLScreen({ navigation }) {
   const [numberOfBols, setNumberOfBols] = React.useState<string | null>('');
   const [refreshCount, setRefreshCount] = React.useState(0);
   const [emptyBOLS, setEmptyBOLS] = React.useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [selectedItems, setSelectedItems] = useState([]);
   const [range, setRange] = useState<{
     startDate: Date | undefined
     endDate: Date | undefined
@@ -139,13 +166,23 @@ export default function BOLScreen({ navigation }) {
     filterData();
   }, [searchText, range]);
 
+  const handleSelect = (id) => {
+    const newSelectedItems = filteredData.includes(id)
+      ? selectedItems.filter(item => item !== id)
+      : [...selectedItems, id];
+    setSelectedItems(newSelectedItems);
+  };
+  const selectedd = () => {
+    console.log(selectedItems)
+  };
+
   return (
     <>
-      <StyledBox flex={1} borderWidth={1} borderColor="pink" >
-        <Header headerTx='boList.headerTitle' withBack={true} onLeftPress={() => navigation.goBack()} />
+      <StyledBox flex={1} >
+        <Header headerTx='boList.headerTitle' rightButtons={true} withBack={true} onLeftPress={() => navigation.goBack()} onSharePress={() => selectedd()} />
         <VStack>
           {/* searchbar */}
-          <HStack>
+          <HStack h="$16">
             <HStack flex={1} $light-bg='#e0e8ee'>
               <HStack flex={5} >
                 <View flex={1}>
@@ -179,24 +216,20 @@ export default function BOLScreen({ navigation }) {
             </HStack>
           </HStack>
           {/* searchbar */}
-          {/* <HStack h="13%"  borderWidth={3} borderColor="cyan" alignItems="center">
-              <VStack borderRightWidth={1} borderColor="black" h="$4/6" w="$1/6" justifyContent="center" alignItems="center">
-              <Icon as={PDFIcon} size={20} />
-              <Text>hosla</Text>
-              </VStack>
-              <VStack borderRightWidth={1} borderColor="red" w="$4/6">
-              <Text>hosla</Text>
-              </VStack>
-              <VStack borderRightWidth={1} borderColor="red" w="$1/6">
-              <Text>hola</Text>
-              </VStack>
-            </HStack> */}
+
+
           {/* list */}
-          <VStack>
-            <DocumentList />
+          <VStack  >
+            { isLoading ? <ActivityIndicator size="large" /> : 
+            ( error ? <View><Text>Error: {error}</Text></View> 
+            :  
+            <DocumentList data={filteredData} selectedItems={selectedItems} onItemSelect={handleSelect} onLeftPress={undefined}  />
+            )} 
+        
+            
+            
           </VStack>
           {/* list  */}
-
         </VStack>
 
       </StyledBox>

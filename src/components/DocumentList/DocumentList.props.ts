@@ -1,12 +1,21 @@
 import { StyleProp, TextStyle, ViewStyle } from "react-native"
 import { IconTypes } from "../icon/icons"
 import { TxKeyPath } from "../../i18n"
+import { DATAA } from "../../types/types"
 
 export interface DocumentListProps {
   /**
    * Main header, e.g. POWERED BY IGNITE
    */
   headerTx?: TxKeyPath
+
+  data: DATAA[];
+
+ selectedItems: DATAA[];
+ 
+ onItemSelect?(): void;
+
+ 
 
   /**
    * header non-i18n
