@@ -1,6 +1,5 @@
 import { useState, createContext, useCallback } from 'react';
-import { StyleSheet, Text, View, SafeAreaView } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider, initialWindowMetrics } from 'react-native-safe-area-context'
 import { ThemeContext } from './src/context/ThemeContext'
 import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -18,9 +17,6 @@ import { useFonts,
 import * as SplashScreen from 'expo-splash-screen';
 
 SplashScreen.preventAutoHideAsync();
-
-const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
 
 export default function App() {
   const [colorMode, setColorMode] = useState<"dark" | "light">("light");
@@ -53,7 +49,7 @@ export default function App() {
     <>
 
       <NavigationContainer onReady={onLayoutRootView} >
-      <SafeAreaProvider>
+      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
         <GluestackUIProvider colorMode={colorMode} config={config}>
           <ThemeContext.Provider value={{ colorMode, toggleColorMode }}>
             <TabNavigator />

@@ -16,27 +16,35 @@ const ListItem = ({ item, isSelected, onSelect }) => {
   return (
     <Box h={96} borderBottomWidth="$1" borderColor="$trueGray800" flexDirection='row'>
 
-    <Pressable flex={0.5}>
+    <Pressable flex={0.5} paddingTop={8} >
         <VStack justifyContent="center" alignItems="center" >
-            <Icon as={PDFIcon} size="xl" h={55} w={55} />
+            <Icon as={PDFIcon} size="xl" h={55} w={55}/>
         </VStack>
-        <VStack borderWidth={1} borderColor="blue" justifyContent='center' alignItems='center'  >
-            <StyledText color='black' fontSize="$2xs">
-                2320932023
+        <VStack flex={1} justifyContent='center' alignItems='center'>
+            <StyledText color='black' fontSize="$2xs" numberOfLines={1}
+    adjustsFontSizeToFit  >
+                {item.doc_no}
             </StyledText>
         </VStack>
     </Pressable>
 
-    <Pressable borderBottomWidth="$1" flex={2}>
-        <VStack >
-            <StyledText fontSize="$md" color='black' >{item.TransDate}</StyledText>
-            <StyledText fontSize="$md" color='black'>Truck: {item.Terminal}</StyledText>
-            <StyledText  fontSize="$md" color='black'>Trailer:{item.Terminal}</StyledText>
-            <StyledText fontSize="$md" color='black'>{item.Terminal}</StyledText>
+    <Pressable flex={2}>
+        <VStack>
+            <StyledText fontSize="$md" color='black' numberOfLines={1} 
+            adjustsFontSizeToFit  >{item.TransDate}</StyledText>
+            
+            <StyledText fontSize="$md" color='black' numberOfLines={1}
+            adjustsFontSizeToFit >{item.Terminal}</StyledText>
+
+            <StyledText  fontSize="$md" color='black' numberOfLines={1}
+            adjustsFontSizeToFit >Truck: {item.truck}</StyledText>
+            
+            <StyledText fontSize="$md" color='black' numberOfLines={1}
+            adjustsFontSizeToFit >Trailer: {item.trailer1}</StyledText>
         </VStack>
     </Pressable>
 
-    <Pressable onPress={onSelect} flex={0.5} borderWidth="$1" justifyContent='center' alignItems='center' >
+    <Pressable onPress={onSelect} flex={0.5}  justifyContent='center' alignItems='center' >
         <View style={[styles.checkboxBase, isSelected && styles.checkboxChecked]} onPress={onSelect} >
             {isSelected && <Icon as={Check} size={24} color="white" />}
         </View>

@@ -4,14 +4,17 @@ import { Header } from "../components/header/Header";
 import { i18n } from '../i18n/i18n';
 import { StyledBox, StyledText } from '../components/styledComponents/index';
 import { PressableType } from '../types/types';
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function HomeScreen({ navigation }) {
+  const insets = useSafeAreaInsets();
+
   return (
     <>
-      <StyledBox flex={1} >
+      <StyledBox flex={1} paddingTop={insets.top} bg='#1F4F7B'>
         <Header headerTx='homeScreen.headerTitle' />
-        <HStack justifyContent='center' alignItems="center" flex={1} marginLeft={20}>
-          <VStack h="$full" w="$full" justifyContent='center'>
+        <HStack justifyContent='center' alignItems="center" flex={1} paddingLeft={20}  bg='$light100'>
+          <VStack h="$full" w="$full" justifyContent='center' >
           
               <Pressable flex={0.5} justifyContent='flex-end' onPress={() => { navigation.navigate('Bols') }}  >
                 {({ pressed }: PressableType) =>

@@ -7,8 +7,8 @@ const ButtonGroup = (props) => {
             <HStack justifyContent='center' alignItems="center" flex={1}>
                 <VStack space={space} alignItems="center" justifyContent='center' h={'$5/6'} flex={1}>
                     {props.buttons.map((button, index) => (
-                        <StyledButton onPress={() => navigation.navigate(button.route)} key={index} alignItems="center" justifyContent='center' variant="solid" h={buttonHeight} w="$5/6" >
-                            <StyledButtonText>{button.label}</StyledButtonText>
+                        <StyledButton hardShadow="4" onPress={() => navigation.navigate(button.route)} key={index} alignItems="center" justifyContent='center' variant="solid" h={buttonHeight} w="$5/6" >
+                            <StyledButtonText color='#1F4F7B'>{button.label}</StyledButtonText>
                         </StyledButton>
                     ))}
                 </VStack>

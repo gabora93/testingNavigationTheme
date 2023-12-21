@@ -3,6 +3,7 @@
     "name": "testingNavigationTheme",
     "slug": "testingNavigationTheme",
     "version": "1.0.0",
+    "backgroundColor": "#000000",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -20,7 +21,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#000000"
       }
     },
     "web": {

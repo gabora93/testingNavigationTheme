@@ -38,10 +38,9 @@ export interface Result {
 export interface BOL {
     Terminal: string;
     TransDate: string;
-    TransRefNo: string;
+    TransRefNo: number;
     TransTime: string;
-    doc_no: string;
-    selected: boolean;
+    doc_no: number;
     trailer1: string;
     trailer2: string;
     trailer3: string;

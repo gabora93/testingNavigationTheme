@@ -26,14 +26,14 @@ const config = {
     overshootClamping: true,
     restDisplacementThreshold: 0.01,
     restSpeedThreshold: 0.01,
-  },
-};
+  },};
 
 export const TabNavigator = () => {
   const insets = useSafeAreaInsets();
   console.log('inset',insets)
     return (
         <Tab.Navigator screenOptions={({ route }) => ({
+          tabBarIconStyle:{marginTop:7},
           animationEnabled: true,
           swipeEnabled : true,
           tabBarHideOnKeyboard: true,
@@ -54,7 +54,7 @@ export const TabNavigator = () => {
             }
             return label
           },
-          tabBarStyle: { height: 70 , width:'100%', paddingBottom:2},
+          tabBarStyle: { height: "10%" , width:'100%', paddingBottom: insets.bottom},
             tabBarIcon: ({ focused, color, size }) => {
               let iconName;
               if (route.name === 'Home') {
@@ -73,7 +73,7 @@ export const TabNavigator = () => {
                   start={{ x: 0, y: 1 }}
                   end={{ x: 0, y: 0 }}
                   colors={["#133352", "#1F4F7B"]}
-                  style={{ height: 70 }}
+                  style={{ height: 90 }}
                 />
               </View>
             ),

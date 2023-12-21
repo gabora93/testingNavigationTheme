@@ -1,28 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import { DocumentListProps } from "./DocumentList.props"
-import { Menu, FileText, CheckCheck, Container } from 'lucide-react-native';
-import { i18n } from '../../i18n/i18n';
-import { Center, Icon, Checkbox, CheckboxIndicator, CheckboxIcon, CheckIcon, CheckboxLabel, Pressable } from "@gluestack-ui/themed"
-import { translate } from "../../i18n/"
-import { StatusBar } from 'expo-status-bar';
-import { StyledHS, StyledText, StyledBox } from '../styledComponents/index';
-import { StyledLinearGradient } from '../styledComponents/StyledLinearGradient';
-import GradientIcon from '../styledComponents/GradientIcon';
-import { FlatList, Box, Heading, VStack, HStack, Avatar, AvatarImage, Text, View } from '@gluestack-ui/themed';
-import PDFIcon from "./PDFIcon";
-import { Dimensions } from 'react-native';
 
-import { DATAA } from '../../types/types'
+import { FlatList, Box, Heading, VStack, HStack, Avatar, AvatarImage, Text, View  } from '@gluestack-ui/themed';
 import ListItem from './ListItem';
+import { TextStyle, Dimensions, ViewStyle, Platform, TouchableOpacity, StyleSheet, LogBox, Animated, Easing, ActivityIndicator } from "react-native"
 
-export function DocumentList({ onLeftPress, data, selectedItems, onItemSelect }) {
+
+export function DocumentList({ onLeftPress, filteredBolList, selectedItems, onItemSelect, isLoading }) {
   
   const renderItem = ({ item }) => {
+    console.log('DOCUMENT LIST ITEM',item)
     return (
       <ListItem
         item={item}
         isSelected={selectedItems.includes(item.id)}
-        onSelect={() => onItemSelect(item.id)}
+        onSelect={(item) => onItemSelect(item.id)}
       />
     )
   };
@@ -39,16 +29,29 @@ export function DocumentList({ onLeftPress, data, selectedItems, onItemSelect })
       />
     );
   };
+console.log('filteredBolList', filteredBolList)
+  // return (
+    
+  //   <FlatList
+  //   contentContainerStyle={{ flexGrow: 1, paddingBottom: 5 }}
+  //     data={data}
+  //     keyExtractor={(item) => item.doc_no.toString()}
+  //     ItemSeparatorComponent={ItemSeparatorView}
+  //     renderItem={(item) => renderItem(item)}
+  //     ListFooterComponent={<View h={42} />}
+  //     ListHeaderComponent={<View h={2} />}
+  //   />
+  // )
 
-  return (
+  return  (  isLoading ? (
+    <ActivityIndicator size="large" color="#0000ff" />
+) : filteredBolList.length > 0 ? (
     <FlatList
-    contentContainerStyle={{ flexGrow: 1, paddingBottom: 5 }}
-      data={data}
-      keyExtractor={(item) => item.doc_no.toString()}
-      ItemSeparatorComponent={ItemSeparatorView}
-      renderItem={renderItem}
-      ListFooterComponent={<View h={42} />}
-      ListHeaderComponent={<View h={2} />}
+        data={filteredBolList}
+        renderItem={(item) => renderItem(item)}
+        keyExtractor={item => item.doc_no}
     />
-  )
+) : (
+    <Text>You have no BOLs</Text>
+))
 };
