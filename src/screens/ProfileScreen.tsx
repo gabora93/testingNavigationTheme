@@ -9,9 +9,12 @@ import { Image, Icon, Input, InputField, styled, Pressable, VStack, Center, HSta
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import * as Localization from 'expo-localization';
 import { StackActions } from '@react-navigation/native';
-import { getFromSecureStore } from '../services/helper';
 import { i18n } from '../i18n/i18n';
 import ProfileService from "../services/axiosapi/ProfileService";
+import { AuthContext } from '../services/authContext';
+import { deleteKeySecureStore, getFromSecureStore } from "../services/helper"
+
+
 
 const initialState = {
   email: "",
@@ -36,6 +39,8 @@ export default function ProfileScreen({ route, navigation }) {
     navigation.dispatch(StackActions.replace('eligibility_menu'))
     setLocale(locale);
   }
+  const { signOut } = useContext(AuthContext);
+
 
   useEffect(() => {
     getProfileInfo()
@@ -63,6 +68,18 @@ export default function ProfileScreen({ route, navigation }) {
       </View>
     );
   };
+  const logOut = async () => {
+    console.log("logging out, deleting securestore")
+    // eraseNotificationToken()
+    deleteKeySecureStore("license")
+    deleteKeySecureStore("firstName")
+    deleteKeySecureStore("lastName")
+    deleteKeySecureStore("userEmail")
+    deleteKeySecureStore("jwt")
+    deleteKeySecureStore("temporal_token")
+    signOut();
+    navigation.navigate("login")
+}
 
 
 
@@ -145,12 +162,18 @@ export default function ProfileScreen({ route, navigation }) {
         </VStack>
         </Box>
         <VStack w="$5/6" marginTop="$2">
-        { profileButtons.map((button, index)=>(
+        { profileButtons.map((button, index)=>
+          {button.route === 'logout' ? 
+          <StyledButton marginBottom="$3" sx={{ _dark: { borderColor: 'cyan', borderBottomColor: '$red900', borderBottomWidth: 5 }, _light: { variant: 'solid' } }} variant='outline' hardShadow="4"
+          onPress={() => logout } key={index} alignItems="center" justifyContent='center' h='$16' >
+             <StyledButtonText sx={{ _dark: { color: 'white' }, _light: { color: '#1F4F7B' } }}>{i18n.t(button.label)}</StyledButtonText>
+         </StyledButton>
+          : 
           <StyledButton marginBottom="$3" sx={{ _dark: { borderColor: 'cyan', borderBottomColor: '$red900', borderBottomWidth: 5 }, _light: { variant: 'solid' } }} variant='outline' hardShadow="4"
           onPress={() => button.route === "updateToken" ? updateTokens() : navigation.navigate(button.route) } key={index} alignItems="center" justifyContent='center' h='$16' >
              <StyledButtonText sx={{ _dark: { color: 'white' }, _light: { color: '#1F4F7B' } }}>{i18n.t(button.label)}</StyledButtonText>
-         </StyledButton>
-        ))}
+         </StyledButton>}
+        )}
         </VStack>
         {/* <ButtonGroup buttons={profileButtons} navigation={navigation} space={'xl'} buttonHeight={'$16'} openModal={handleOpen} /> */}
         <HStack justifyContent='center'>

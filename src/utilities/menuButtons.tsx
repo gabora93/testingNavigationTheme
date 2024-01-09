@@ -19,7 +19,7 @@ export const menuButtons: MenuButton[] =
         { label: 'profile.updateNotification', route: "updateToken" },
         { label: 'changelanguage.btnChangeLanguage', route: "modal" },
         { label: 'profile.dissableAccount', route: "about" },
-        { label: 'profile.logout', route: "about" },
+        { label: 'profile.logout', route: "logout" },
     ];
 
     export const eligibilityButtons: MenuButton[] = 

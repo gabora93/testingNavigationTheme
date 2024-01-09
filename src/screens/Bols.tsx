@@ -19,7 +19,7 @@ import { i18n } from "../i18n";
 import { getFromSecureStore } from "../services/helper";
 import BolService from "../services/axiosapi/BolService";
 import * as FileSystem from 'expo-file-system';
-// import Share from 'react-native-share';   expo dev build
+import Share from 'react-native-share';  
 
 
 
@@ -129,8 +129,19 @@ export default function BOLScreen({ navigation }) {
   };
 
   const multipleBols = async () => {
-    const selectedBOLS = filteredBolList.filter((bol) => { return bol.selected !== false });
+    // const selectedBOLS = filteredBolList.filter((bol) => { return bol.selected !== false });
+   
+
     try {
+      const selectedBOLS = filteredBolList.filter((bol)=> selectedItems.includes(bol.doc_no));
+
+      console.log('SELECTED BOLS', selectedItems)
+      selectedBOLS.forEach((elemento)=>{
+        var lastFive = elemento.BLOB?.substr(elemento.BLOB.length - 5); 
+        console.log('last 5:::', lastFive);
+        console.log('elemento TRANSREFNO:::', elemento.TransRefNo)
+        console.log('elemento docno:::', elemento.doc_no)
+      })
       await getMultipleBOLS(selectedBOLS).then((resp) => {
         generatePDFSandShare(resp)
       })
@@ -202,8 +213,8 @@ export default function BOLScreen({ navigation }) {
       const license = await getFromSecureStore("license");
       console.log("license", license)
       let body = {
-        // license: license,
-        license: 'p555443222',
+        license: license,
+        // license: 'p555443222',
         maxNumberOfBOLs: numBols
       };
 
@@ -237,7 +248,7 @@ export default function BOLScreen({ navigation }) {
   const generatePDFSandShare = async (data) => {
     const bolsToShare = [];
     for (let i = 0; i < data.length; i++) {
-      const fileName = "BOL" + data[i].doc_no;
+      const fileName = `BOL ${data[i].TransRefNo} ${data[i].unformattedDate}`
       const fileURL = getFileUri(fileName);
       await FileSystem.writeAsStringAsync(getFileUri(fileName), data[i].BLOB, { encoding: FileSystem.EncodingType.Base64 });
       bolsToShare.push({
@@ -345,7 +356,8 @@ export default function BOLScreen({ navigation }) {
     const license = await getFromSecureStore("license");
     console.log("goToPDFViewer", item)
     setFilteredBolList(bolList);
-    navigation.navigate('bol_viewer', { bol: item, license: license })
+    navigation.navigate('bol_viewer', { TransRefNo: item.TransRefNo, doc_no: item.doc_no, Terminal: item.Terminal, unformattedDate: item.unformattedDate, TransDate: item.TransDate, TransTime: item.TransTime })
+
   }
 
   return (

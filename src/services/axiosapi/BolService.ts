@@ -54,6 +54,7 @@ const BolService = () => {
         try {
             const license = await SecureStore.getItemAsync("license");
             for (const item of BOLS) {
+                // console.log('iteeem', item)
                 let body = {
                     license: license,
                     trans_ref_no: item.TransRefNo
@@ -61,6 +62,7 @@ const BolService = () => {
                 const response = await getBOL(body);
                 if (response.data.result[0].BLOB != null) {
                     item.BLOB = response.data.result[0].BLOB
+                    // console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ', bols)
                 } else {
                     console.log("NO RESPONSWE", response)
                 }

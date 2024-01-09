@@ -19,11 +19,11 @@
       "bundleIdentifier": "com.toptech.toptechdriver",
       "supportsTablet": false,
       "icon": "./assets/appstore.png",
-      "buildNumber": "1.8.0"
+      "buildNumber": "2.0.0"
     },
     "android": {
       "package": "com.toptech.toptechdriver",
-      "versionCode": 60,
+      "versionCode": 61,
       "permissions": [
         "NOTIFICATIONS"
       ],
@@ -38,8 +38,8 @@
     },
     "plugins": [
       "expo-localization",
-      // "@config-plugins/react-native-blob-util",
-      // "@config-plugins/react-native-pdf"
+      "@config-plugins/react-native-blob-util",
+      "@config-plugins/react-native-pdf"
     ],
     "extra": {
       "eas": {

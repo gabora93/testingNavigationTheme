@@ -5,12 +5,15 @@ import { menuButtons } from '../utilities/menuButtons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { VStack, Icon } from '@gluestack-ui/themed';
 import React, { useEffect } from 'react';
-import { Menu, RefreshCcw, CalendarMinus, Share2  } from 'lucide-react-native';
+import { Menu, RefreshCcw, CalendarMinus, Share2 } from 'lucide-react-native';
 import { getFromSecureStore } from '../services/helper';
 import BolService from "../services/axiosapi/BolService";
 import * as FileSystem from 'expo-file-system';
 import { StyleSheet, Dimensions, View, TextStyle, ViewStyle, TouchableOpacity, ActivityIndicator, Platform } from 'react-native';
-
+import Pdf from 'react-native-pdf';
+import Share from 'react-native-share';
+import { color } from '../theme/color';
+import { ButtonSpinner } from '@gluestack-ui/themed';
 
 const initialState = {
   blobSource: "",
@@ -40,6 +43,7 @@ export default function BolViewerScreen({ route, navigation }) {
 
   const [state, setState] = React.useState(initialState);
   const [modalVisible, setModalVisible] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
 
   const routeparams = {};
@@ -77,8 +81,10 @@ export default function BolViewerScreen({ route, navigation }) {
     // the share response. If the user cancels, etc.
     try {
       const ShareResponse = await Share.open(shareOptions);
+      setLoading(false)
     } catch (error) {
       console.log('Error =>', error);
+      setLoading(false)
     }
   };
 
@@ -92,6 +98,7 @@ export default function BolViewerScreen({ route, navigation }) {
           url: fileURI,
           title: 'title share',
         });
+        setLoading(false)
       })
       .catch(error => {
         console.error('ERRRORE', error);
@@ -100,6 +107,7 @@ export default function BolViewerScreen({ route, navigation }) {
 
 
   const generatePDFandShare = async (data) => {
+    setLoading(true)
     console.log("generatePDFandShare pdf")
     console.log('data', data)
     const filename = `BOL ${TransRefNo} ${unformattedDate}`
@@ -108,10 +116,25 @@ export default function BolViewerScreen({ route, navigation }) {
     const pdf = data
     const fileURI = getFileUri(filename);
     if (Platform.OS === 'ios') {
-      shareiOS(fileURI, pdf)
+      sharePDF(fileURI, pdf)
     } else {
       sharePDF(fileURI, pdf)
     }
+  };
+
+  const generatePDFSandShare = async (data) => {
+    const bolsToShare = [];
+    for (let i = 0; i < data.length; i++) {
+      const fileName = "BOL" + data[i].doc_no;
+      const fileURL = getFileUri(fileName);
+      await FileSystem.writeAsStringAsync(getFileUri(fileName), data[i].BLOB, { encoding: FileSystem.EncodingType.Base64 });
+      bolsToShare.push({
+        "filename": fileName,
+        "blob": data[i].BLOB,
+        "fileURL": fileURL
+      })
+    }
+    shareMultiplePDFS(bolsToShare);
   };
 
   const getBOLData = async () => {
@@ -120,17 +143,15 @@ export default function BolViewerScreen({ route, navigation }) {
     console.log("license", license)
     let body = {
       license: license,
-      trans_ref_no: "6690059442"
+      trans_ref_no: TransRefNo
     };
     await getBOL(body).then((bolData) => {
-      console.log('BOL DATA', bolData)
+      // console.log('BOL DATA', bolData)
       if (bolData !== null) {
         // Handle the successful response data
-        console.warn('si hay blob')
         if (bolData.data.result[0].BLOB != null) {
-          console.warn('YEP')
           const pdfBlob = bolData.data.result[0].BLOB;
-          console.log('PDFBLOB', pdfBlob)
+          // console.log('PDFBLOB', pdfBlob)
           setState({ ...state, blobSource: bolData.data.result[0].BLOB, loaded: true })
 
         } else if (bolData.data.result[0].Status === "FILE_NOT_FOUND") {
@@ -172,12 +193,25 @@ export default function BolViewerScreen({ route, navigation }) {
 
   return (
     <StyledBox flex={1} paddingTop={insets.top} bg='#1F4F7B' >
-      <Header headerTx='boList.headerTitle' rightButtons={true} withSettings={false} ons={generatePDFandShare(state.blobSource)} withBack={true} onLeftPress={() => navigation.goBack()} onSharePress={() => console.log()} />
+      <Header headerTx='boList.headerTitle' withSettings={false} withBack={true} onLeftPress={() => navigation.goBack()}  />
       <VStack flex={1} $light-bg='$light200'>
-
+        <Pdf trustAllCerts={true} source={source}
+          style={styles.pdf}
+          onLoadComplete={(numberOfPages, filePath) => {
+            console.log('numberofPages:', numberOfPages, 'filePath: ', filePath)
+          }}
+          renderActivityIndicator={(progress) => {
+            console.log(progress)
+            if (progress > 0) {
+              return <></>
+            } else {
+              return <ActivityIndicator animating={true} size="large" color="blue" />
+            }
+          }}
+        />
       </VStack>
       <TouchableOpacity style={BUTTON_STYLE} onPress={() => generatePDFandShare(state.blobSource)} >
-        <Icon as={Share2 } size={2} />
+        { loading ? <ButtonSpinner/> : <Icon as={Share2} color='white' size={35} />}
       </TouchableOpacity>
     </StyledBox>
   )
@@ -207,7 +241,7 @@ const styles = StyleSheet.create({
     marginTop: 22,
   },
   modalView: {
-    width:50,
+    width: 50,
     backgroundColor: 'white',
     borderRadius: 20,
     padding: 35,

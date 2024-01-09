@@ -286,7 +286,7 @@ const LoginScreen = ({navigation}) => {
   };
   const settingLocale = (locale) => {
     console.log(locale);
-    navigation.dispatch(StackActions.replace('eligibility_menu'))
+    // navigation.dispatch(StackActions.replace('eligibility_menu'))
     setLocale(locale);
   }
 

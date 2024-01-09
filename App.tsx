@@ -205,8 +205,8 @@ const App = () => {
               <GluestackUIProvider colorMode={colorMode} config={config}>
                 <ThemeContext.Provider value={{ colorMode, toggleColorMode }}>
 
-                  {/* { loginState.userToken ? <AuthenticatedTabNavigator /> : <UnauthenticatedStackNavigator />} */}
-                  {loginState.userToken ? <UnauthenticatedStackNavigator /> : <AuthenticatedTabNavigator />}
+                  { loginState.userToken ? <AuthenticatedTabNavigator /> : <UnauthenticatedStackNavigator />}
+                  {/* {loginState.userToken ? <UnauthenticatedStackNavigator /> : <AuthenticatedTabNavigator />} */}
                 </ThemeContext.Provider>
               </GluestackUIProvider>
             </SafeAreaProvider>

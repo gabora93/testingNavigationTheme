@@ -21,7 +21,7 @@ export const useAxiosInstance = () => {
   // Request interceptor
 
   const requestHandler = async request => {
-    // const jwtToken = await getFromSecureStore("jwt");
+    const jwtToken = await getFromSecureStore("jwt");
     const tempToken = await getFromSecureStore("temporal_token");
 
     const user = await getFromSecureStore('user');
@@ -35,21 +35,20 @@ export const useAxiosInstance = () => {
     console.log('TEMPORAL TOKEN   >>>>>>>>>>>>>>>>>>>>>>>>>>',tempToken)
     
 
-    const jwtToken = await getFromSecureStore("jwt");
     // const tempToken = await getFromSecureStore("temporal_token");
     const gToken = "IntcInR5cFwiOlwiSldUXCIsXCJhbGdcIjpcIkhTMjU2XCJ9Ig.eyJDb21wYW55IjoiU29ub3JhIC0gQXBwIERldmVsb3BtZW50IENvbXBhbnkiLCJUb3B0ZWNoUHJvZHVjdCI6IkwyRCIsIkNyZWF0aW9uRGF0ZSI6IjIwMjEtMDktMjggMTE6MDA6NDgifQ.1EezgPf2v79q45ejwfCwb8nzNln1TN9vIectudIMn8k"
     const gToken2 = "0A25C56017136D7DDF4E0E9F60C83F4863F071D5E58DFB3CF25191903AC9BEAE"
 
-    if (TOKENSIO != null) {
+    if (jwtToken != null) {
         console.log("sip hay jwt")
-        console.log("sip hay TOKENSIO", TOKENSIO)  // CHANGETHIS for jwtToken
+        console.log("sip hay TOKENSIO", jwtToken)  // CHANGETHIS for jwtToken
         console.log("                                                      ")
-        console.log(">>>>>>>>>>>> CALL WITH JJJWWWTTTT TOKEN:", TOKENSIO)// CHANGETHIS for jwtToken
+        console.log(">>>>>>>>>>>> CALL WITH JJJWWWTTTT TOKEN:", TOjwtTokenKENSIO)// CHANGETHIS for jwtToken
         console.log("                                                      ")
 
         request.headers["Access-Control-Allow-Origin"] = '*';
         request.headers["Content-Type"] = 'application/json;charset=UTF-8';
-        request.headers["token"] = `${TOKENSIO}`;// CHANGETHIS for jwtToken
+        request.headers["token"] = `${jwtToken}`;// CHANGETHIS for jwtToken
         request.headers["utcdate"] = `${moment.utc().format('YYYY-MM-DD HH:mm:ss')}`;
         console.log("request data", request)
        

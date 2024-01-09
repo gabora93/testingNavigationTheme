@@ -16,9 +16,9 @@ const ListItem = ({ item, isSelected, onSelect, onPress }) => {
     <Pressable h={100} borderBottomWidth="$1" borderColor="$darkBlue600" flexDirection='row'>
   
   <StyledLinearGradient onTouchEnd={onSelect} flex={0.5}  justifyContent='center' alignItems='center' 
-       start={[1, 0]} end={[0, 0]} colors={['$light100','$light100', '#4444']} >
+       start={[1, 0]} end={[0, 0]} colors={['$light100','$light100', '$light100']} >
         <VStack justifyContent="center" alignItems="center" >
-            <Icon as={PDFIcon} size="xl" h={55} w={55}/>
+            <Icon as={PDFIcon} size="xl" h={55} w={55} marginTop="$2"/>
         </VStack>
         <VStack flex={1} justifyContent='center' alignItems='center'>
             <StyledText color='black' fontSize="$2xs" numberOfLines={1}
@@ -29,7 +29,7 @@ const ListItem = ({ item, isSelected, onSelect, onPress }) => {
         </StyledLinearGradient>
 
     <Pressable flex={2} onPress={onPress} >
-        <VStack   justifyContent='center' h="$full" margin='auto'>
+        <VStack   justifyContent='center' h="$full" margin='auto' marginLeft="$2">
             <Text flex={1} color='black' numberOfLines={1} fontSize="$md"
             adjustsFontSizeToFit  >{item.TransDate}</Text>
             
