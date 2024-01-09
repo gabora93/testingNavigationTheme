@@ -7,16 +7,16 @@ import { translate } from "../../i18n/"
 import { StatusBar } from 'expo-status-bar';
 import { StyledHS, StyledText, StyledBox } from '../styledComponents/index';
 import { StyledLinearGradient } from '../styledComponents/StyledLinearGradient';
-import GradientIcon from '../styledComponents/GradientIcon';
 import { FlatList, Box, Heading, VStack, HStack, Avatar, AvatarImage, Text, View } from '@gluestack-ui/themed';
 import PDFIcon from "./PDFIcon";
 import { StyleSheet, TouchableOpacity } from 'react-native';
 
-const ListItem = ({ item, isSelected, onSelect }) => {
+const ListItem = ({ item, isSelected, onSelect, onPress }) => {
   return (
-    <Box h={96} borderBottomWidth="$1" borderColor="$trueGray800" flexDirection='row'>
-
-    <Pressable flex={0.5} paddingTop={8} >
+    <Pressable h={100} borderBottomWidth="$1" borderColor="$darkBlue600" flexDirection='row'>
+  
+  <StyledLinearGradient onTouchEnd={onSelect} flex={0.5}  justifyContent='center' alignItems='center' 
+       start={[1, 0]} end={[0, 0]} colors={['$light100','$light100', '#4444']} >
         <VStack justifyContent="center" alignItems="center" >
             <Icon as={PDFIcon} size="xl" h={55} w={55}/>
         </VStack>
@@ -26,31 +26,36 @@ const ListItem = ({ item, isSelected, onSelect }) => {
                 {item.doc_no}
             </StyledText>
         </VStack>
-    </Pressable>
+        </StyledLinearGradient>
 
-    <Pressable flex={2}>
-        <VStack>
-            <StyledText fontSize="$md" color='black' numberOfLines={1} 
-            adjustsFontSizeToFit  >{item.TransDate}</StyledText>
+    <Pressable flex={2} onPress={onPress} >
+        <VStack   justifyContent='center' h="$full" margin='auto'>
+            <Text flex={1} color='black' numberOfLines={1} fontSize="$md"
+            adjustsFontSizeToFit  >{item.TransDate}</Text>
             
-            <StyledText fontSize="$md" color='black' numberOfLines={1}
-            adjustsFontSizeToFit >{item.Terminal}</StyledText>
+            <Text flex={1} fontSize="$md" color='black' numberOfLines={1}
+            adjustsFontSizeToFit >{item.Terminal}</Text>
+            <Text flex={1} fontSize="$md" color='black' numberOfLines={1}
+            adjustsFontSizeToFit >RefNo: {item.TransRefNo}</Text>
 
-            <StyledText  fontSize="$md" color='black' numberOfLines={1}
-            adjustsFontSizeToFit >Truck: {item.truck}</StyledText>
+            <Text flex={1} fontSize="$md" color='black' numberOfLines={1}
+            adjustsFontSizeToFit >Truck: {item.truck}</Text>
             
-            <StyledText fontSize="$md" color='black' numberOfLines={1}
-            adjustsFontSizeToFit >Trailer: {item.trailer1}</StyledText>
+            <Text flex={1} fontSize="$md" color='black' numberOfLines={1}
+            adjustsFontSizeToFit >Trailer: -{item.trailer1}-{item.trailer2}-{item.trailer3}</Text>
         </VStack>
     </Pressable>
+    <StyledLinearGradient onTouchEnd={onSelect} flex={0.5}  justifyContent='center' alignItems='center' 
+       start={[0.5, 0]} end={[1, 0]} opacity="$80" colors={isSelected ? ['$light100','$light100', '#acd0d9'] : ['$light100', '$light100'] } >
 
     <Pressable onPress={onSelect} flex={0.5}  justifyContent='center' alignItems='center' >
         <View style={[styles.checkboxBase, isSelected && styles.checkboxChecked]} onPress={onSelect} >
             {isSelected && <Icon as={Check} size={24} color="white" />}
         </View>
     </Pressable>
+    </StyledLinearGradient>
 
-</Box>
+</Pressable>
   );
 };
 

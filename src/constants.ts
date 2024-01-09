@@ -1,5 +1,5 @@
 // APP
-const VERSION: string = '1.8.0';
+const VERSION: string = '2.0.0';
 
 // API URL
 const API_URL: string = 'https://api.toptechdata.com/api/api.php';

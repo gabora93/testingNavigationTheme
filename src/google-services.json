@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "623778816572",
+    "project_id": "l2d-driver-connect",
+    "storage_bucket": "l2d-driver-connect.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623778816572:android:8138651e8083e0e261d939",
+        "android_client_info": {
+          "package_name": "com.toptech.toptechdriver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623778816572-k7omal61lecni3o4iquu4vvfu2p3ukuj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAm5UyXCpG3e93W_VEf8q-Kl8tnaVIUr9Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623778816572-k7omal61lecni3o4iquu4vvfu2p3ukuj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,5 @@
 import * as Localization from "expo-localization"
-import {I18n, TranslateOptions} from "i18n-js"
+import {I18n, TranslateOptions}  from "i18n-js"
 import en from "./en.json"
 import ja from "./ja.json"
 import es from "./es.json"
@@ -8,11 +8,11 @@ import fr from "./fr.json"
 import it from "./it.json"
 import nl from "./nl.json"
 import pl from "./pl.json"
-export const i18n = new I18n();
+export const i18n = new I18n([en, ja, es, de ,fr, it, nl, pl]);
 i18n.enableFallback = true;
 i18n.translations = { en, ja, es, de, it,fr,nl,pl }
- 
-i18n.locale =  "en-US"
+i18n.defaultLocale = "en-US"
+i18n.locale = Localization.locale || "en-US"
 //i18n.locale =  "es-MX"
 // i18n.locale =  "nl-NL"
 //i18n.locale =  "pl-PL"
@@ -23,7 +23,7 @@ i18n.locale =  "en-US"
 //
 //
 //
-console.log(i18n.locale);
+console.log('LOCALE::  ',i18n.locale);
 /**
  * Builds up valid keypaths for translations.
  * Update to your default locale of choice if not English.

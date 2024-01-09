@@ -1,4 +1,4 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator,  } from '@react-navigation/bottom-tabs';
 import { StyleSheet, StyleProp, TextStyle} from 'react-native';
 import { ShareIcon, Icon, Text, FlatList, ScrollView, View} from '@gluestack-ui/themed';
 import HomeScreen from "../src/screens/Home";
@@ -15,6 +15,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { StyledLinearGradient } from '../src/components/styledComponents/StyledLinearGradient';
 import  GradientIcon  from '../src/components/styledComponents/GradientIcon';
 import  GradientText  from '../src/components/styledComponents/GradientText';
+import BOLStack from './BOLStack';
+import EligStack from './EligStack';
 const Tab = createBottomTabNavigator();
 
 const config = {
@@ -28,28 +30,29 @@ const config = {
     restSpeedThreshold: 0.01,
   },};
 
-export const TabNavigator = () => {
+export const AuthenticatedTabNavigator = () => {
   const insets = useSafeAreaInsets();
   console.log('inset',insets)
     return (
         <Tab.Navigator screenOptions={({ route }) => ({
+          title:'IndexStack',
           tabBarIconStyle:{marginTop:7},
           animationEnabled: true,
           swipeEnabled : true,
           tabBarHideOnKeyboard: true,
           keyboardHidesTabBar: true,
-          tabBarLabel: ({ focused, color, size }) => {
+          tabBarLabel: ({ focused, color }) => {
             let label;
             if (route.name === 'Home') {
               label = focused ? <GradientText colors={['white', 'cyan']} text={i18n.t(`smallMenu.home`)}/> : <GradientText colors={['#1F4F7B', 'white']} text={i18n.t(`smallMenu.home`)}/> 
             }
-            else if (route.name === 'Bols') {
+            else if (route.name === 'BOLStack') {
               label = focused ? <GradientText colors={['white', 'cyan']} text={i18n.t(`smallMenu.bol`)}></GradientText> : <GradientText colors={['#1F4F7B', 'white']} text={i18n.t(`smallMenu.bol`)}/> 
             }
             else if (route.name === 'MenuStack') {
               label = focused ? <GradientText colors={['white', 'cyan']} text={i18n.t(`smallMenu.menu`)}></GradientText> : <GradientText colors={['#1F4F7B', 'white']} text={i18n.t(`smallMenu.menu`)}/> 
             }
-            else if (route.name === 'Eligilibility') {
+            else if (route.name === 'EligStack') {
               label = focused ? <GradientText colors={['white', 'cyan']} text={i18n.t(`smallMenu.eligibility`)}></GradientText> : <GradientText colors={['#1F4F7B', 'white']} text={i18n.t(`smallMenu.eligibility`)}/> 
             }
             return label
@@ -59,11 +62,11 @@ export const TabNavigator = () => {
               let iconName;
               if (route.name === 'Home') {
                 iconName = focused ? Home : Home;
-              } else if (route.name === 'Bols') {
+              } else if (route.name === 'BOLStack') {
                 iconName = focused ? FileText  : FileText;
               }else if (route.name === 'MenuStack') {
                 iconName = focused ? AlignJustify  : AlignJustify;
-              }else if (route.name === 'Eligilibility') {
+              }else if (route.name === 'EligStack') {
                 iconName = focused ? CheckCircle   : CheckCircle;
               }
               return focused ?  <GradientIcon colors={['cyan', 'white']} as={iconName}/> :  <GradientIcon colors={['white', 'white']} as={iconName}/>;
@@ -81,8 +84,8 @@ export const TabNavigator = () => {
             tabBarInactiveTintColor: 'gray',
           })}>
             <Tab.Screen name="Home" component={HomeScreen} options={{headerShown: false }} />
-            <Tab.Screen name="Bols" component={BOLScreen} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'} }} />
-            <Tab.Screen name="Eligilibility" component={EliMenuScreen} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'}  }} />
+            <Tab.Screen name="BOLStack" component={BOLStack} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'} }} />
+            <Tab.Screen name="EligStack" component={EligStack} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'}  }} />
             <Tab.Screen name="MenuStack" component={MenuStack} options={{headerShown: false,tabBarLabelStyle:{fontSize:12, fontWeight:'bold'} }}/>
         </Tab.Navigator>
     );

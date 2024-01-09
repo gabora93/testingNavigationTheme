@@ -5,9 +5,17 @@ import { i18n } from '../i18n/i18n';
 import { StyledBox, StyledText } from '../components/styledComponents/index';
 import { PressableType } from '../types/types';
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useState, createContext, useCallback, useEffect } from 'react';
+import * as Localization from 'expo-localization';
+import { useIsFocused } from '@react-navigation/native';
 
 export default function HomeScreen({ navigation }) {
   const insets = useSafeAreaInsets();
+  const isFocused = useIsFocused();
+
+  useEffect( () => {
+    console.log('current locale at HOMESCREEN', Localization.locale)
+  },[isFocused])
 
   return (
     <>
@@ -16,9 +24,9 @@ export default function HomeScreen({ navigation }) {
         <HStack justifyContent='center' alignItems="center" flex={1} paddingLeft={20}  bg='$light100'>
           <VStack h="$full" w="$full" justifyContent='center' >
           
-              <Pressable flex={0.5} justifyContent='flex-end' onPress={() => { navigation.navigate('Bols') }}  >
+              <Pressable flex={0.5} justifyContent='flex-end' onPress={() => { navigation.navigate('BOLStack') }}  >
                 {({ pressed }: PressableType) =>
-                  <>
+                  <>  
                     <HStack m={10} >
                       <HStack alignItems='center' flex={0.9} justifyContent='center' >
                         <Icon as={FileText} color="#1F4F7B" size={60}>
@@ -31,7 +39,8 @@ export default function HomeScreen({ navigation }) {
                   </>
                 }
               </Pressable>
-              <Pressable flex={0.5} justifyContent='center' onPress={() => { navigation.navigate('Bols') }}  >
+              <Pressable flex={0.5} justifyContent='center' onPress={() => {navigation.navigate('EligStack', { screen: 'eligibility_menu' });
+                }}  >
                 {({ pressed }: PressableType) =>
                   <>
                     <HStack m={10} >
@@ -67,11 +76,11 @@ export default function HomeScreen({ navigation }) {
                         </Icon>
                       </HStack>
                       <VStack justifyContent='center' flex={2}>
-                        <StyledText color={pressed ? "pink" : "black"}>{i18n.t('homeScreen.viewFullMenu')}</StyledText>
-                        <Text color={pressed ? "pink" : "black"}>{i18n.t('bigMenu.profile')}</Text>
-                        <Text color={pressed ? "pink" : "black"}>{i18n.t('bigMenu.settings')}</Text>
-                        <Text color={pressed ? "pink" : "black"}>{i18n.t('bigMenu.privacyPolicy')}</Text>
-                        <Text color={pressed ? "pink" : "black"}>{i18n.t('bigMenu.about')}</Text>
+                        <StyledText color={pressed ? "blue" : "black"}>{i18n.translate('homeScreen.viewFullMenu')}</StyledText>
+                        <Text color={pressed ? "blue" : "black"}>{i18n.t('bigMenu.profile')}</Text>
+                        <Text color={pressed ? "blue" : "black"}>{i18n.t('bigMenu.settings')}</Text>
+                        <Text color={pressed ? "blue" : "black"}>{i18n.t('bigMenu.privacyPolicy')}</Text>
+                        <Text color={pressed ? "blue" : "black"}>{i18n.t('bigMenu.about')}</Text>
                       </VStack>
                     </HStack>
                   </>

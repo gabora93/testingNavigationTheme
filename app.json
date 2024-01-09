@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "testingNavigationTheme",
-    "slug": "testingNavigationTheme",
-    "version": "1.0.0",
-    "backgroundColor": "#000000",
+    "owner": "giruiz",
+    "name": "L2DDriverConnectAppEnterprise",
+    "slug": "L2DDriverConnectAppEnterprise",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -16,19 +16,35 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.toptech.toptechdriver",
+      "supportsTablet": false,
+      "icon": "./assets/appstore.png",
+      "buildNumber": "1.8.0"
     },
     "android": {
+      "package": "com.toptech.toptechdriver",
+      "versionCode": 60,
+      "permissions": [
+        "NOTIFICATIONS"
+      ],
+      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#000000"
+        "backgroundColor": "#ffffff"
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-localization"
-    ]
+      "expo-localization",
+      // "@config-plugins/react-native-blob-util",
+      // "@config-plugins/react-native-pdf"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "671877e9-00c7-4b2c-887a-65f35d3d3aa6"
+      }
+    }
   }
 }

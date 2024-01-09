@@ -1,6 +1,6 @@
 import { StyleProp, TextStyle, ViewStyle } from "react-native"
 import { IconTypes } from "../icon/icons"
-import { TxKeyPath } from "../../i18n"
+import { TxKeyPath } from "../../../i18n/i18n"
 
 export interface HeaderProps {
   /**
@@ -19,6 +19,8 @@ export interface HeaderProps {
   shareIcon?: Boolean
   
   withBack?: Boolean
+  
+  withSettings?: Boolean
   /**
    * Icon that should appear on the left
    */

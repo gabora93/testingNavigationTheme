@@ -14,7 +14,7 @@ export const getFromSecureStore2 = async (key) => {
 
 export const getFromSecureStore = async (key) => {
     try {
-        console.log('keyyyyyo    ', key);
+        console.log('getFromSecureStore key    ', key);
 
         const value = await SecureStore.getItemAsync(key);
 
@@ -22,7 +22,7 @@ export const getFromSecureStore = async (key) => {
             console.log('VALUE:::', value);
             return value;
         } else {
-            console.log('VALUE IS NULLLLLLLLLLLLLLLLL');
+            console.log(`VALUE IS NULL FOR key: ${key}`);
             return null;
         }
     } catch (error) {
@@ -32,13 +32,15 @@ export const getFromSecureStore = async (key) => {
 };
 
 export const saveOnSecureStore = async (key, value) => {
-    try {
     console.log('keyyyyy  to saveeeee  ', key, value)
-    await SecureStore.setItemAsync(key, value);
-} catch (error) {
-    console.error('Error while saving value from SecureStore:', error, key, value);
-    return null;
-}
+  
+
+    try {
+        await SecureStore.setItemAsync(key, value);
+    } catch (error) {
+        console.error('Error while saving value from SecureStore:', error, key);
+        return null;
+    }
 };
 
 export const deleteKeySecureStore = async (key) => {

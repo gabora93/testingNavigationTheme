@@ -1,21 +1,13 @@
-import axios from './axiosInstance';
+import { useAxiosInstance } from './axiosHook'
 import { CHANGE_EMAIL, CHANGE_PASSWORD, FORGOT_USERNAME, FORGOT_PASSWORD, UPDATE_TOKEN, DELETE_ACCOUNT } from '../../constants.ts';
 var moment = require('moment');
 
-class ProfileService {
-    static instance;
-
-    constructor() {
-        if (this.instance) {
-            return this.instance;
-        }
-        this.axios = axios;
-        this.instance = this;
-    }
-
+const ProfileService = () => {
+   
+    const { axiosInstance } = useAxiosInstance();
  
-    changeEmail = (body) => {
-        let res = this.axios.post(CHANGE_EMAIL, {
+   const changeEmail = (body) => {
+        let res = axiosInstance.post(CHANGE_EMAIL, {
             olduserID: body.olduserID,
             newuserID: body.newuserID,
             locale: body.locale.slice(0, 2)
@@ -23,8 +15,8 @@ class ProfileService {
         return res;
     }
 
-    changePassword = (body) => {
-        let res = this.axios.post(CHANGE_PASSWORD, {
+   const changePassword = (body) => {
+        let res = axiosInstance.post(CHANGE_PASSWORD, {
             userID: body.userID,
             oldpassword: body.oldpassword,
             newpassword: body.newpassword,
@@ -32,8 +24,8 @@ class ProfileService {
         });
         return res;
     }
-    recoverUsername = (body) => {
-        let res = this.axios.post(FORGOT_USERNAME, {
+   const recoverUsername = (body) => {
+        let res = axiosInstance.post(FORGOT_USERNAME, {
             firstName: body.firstName,
             lastName: body.lastName,
             license: body.license,
@@ -41,37 +33,37 @@ class ProfileService {
         });
         return res;
     }
-    recoverPassword = (body) => {
-        let res = this.axios.post(FORGOT_PASSWORD, {
+   const recoverPassword = (body) => {
+        let res = axiosInstance.post(FORGOT_PASSWORD, {
             userID: body.userID,
             api_token: body.api_token,
             locale: body.locale.slice(0, 2)
         });
         return res;
     }
-    updateTokenCall = (body) => {
-        let res = this.axios.post(UPDATE_TOKEN, {
+   const updateTokenCall = (body) => {
+        let res = axiosInstance.post(UPDATE_TOKEN, {
             loginName: body.loginName,
             deviceTokenString: body.deviceTokenString
         });
         return res;
     }
 
-    deleteAccount = (body) => {
-        let res = this.axios.post(DELETE_ACCOUNT, {
+    const deleteAccount = (body) => {
+        let res = axiosInstance.post(DELETE_ACCOUNT, {
             email: body.email
         });
         return res;
     }
 
-    updateToken = async (email, deviceTokenString) => {
+   const updateToken = async (email, deviceTokenString) => {
         try {
             let body = {
                 loginName: email,
                 deviceTokenString: deviceTokenString
             };
             console.log('body', body);
-            const response = await this.updateTokenCall(body);
+            const response = await updateTokenCall(body);
             console.log('response update token', response.data);
             console.log('status', response.data.result[0].Status);
     
@@ -101,6 +93,7 @@ class ProfileService {
             ]);
         }
     }
-}
 
-export default new ProfileService();
+    return { changeEmail, changePassword, recoverUsername, recoverPassword, updateToken, deleteAccount, updateTokenCall}
+}
+export default ProfileService;

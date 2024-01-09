@@ -1,6 +1,6 @@
 import React, { FC, useState, useCallback, useEffect } from "react";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { TextStyle, Dimensions, ViewStyle, Platform, TouchableOpacity, StyleSheet, FlatList, LogBox, Animated, Easing, ActivityIndicator } from "react-native"
+import { TextStyle, Dimensions, RefreshControl, ViewStyle, Platform, TouchableOpacity, StyleSheet, FlatList, LogBox, Animated, Easing, ActivityIndicator } from "react-native"
 import { StyledBox, StyledText } from '../components/styledComponents/index';
 import { Header } from "../components/header/Header";
 import { SearchBar } from '@rneui/themed';
@@ -18,22 +18,13 @@ import ListItem from "../components/DocumentList/ListItem";
 import { i18n } from "../i18n";
 import { getFromSecureStore } from "../services/helper";
 import BolService from "../services/axiosapi/BolService";
+import * as FileSystem from 'expo-file-system';
+// import Share from 'react-native-share';   expo dev build
 
-type BOLICO = {
-  Terminal: string;
-  TransDate: string;
-  TransRefNo: string;
-  TransTime: string;
-  doc_no: string;
-  trailer1: string;
-  trailer2: string;
-  trailer3: string;
-  truck: string;
-  unformattedDate: string;
-  BLOB?: string;
-};
+
 
 export default function BOLScreen({ navigation }) {
+  const { getBOLS, getMultipleBOLS } = BolService();
   const insets = useSafeAreaInsets();
   const locales: [string, TranslationsType][] = [
     ['de', de],
@@ -50,91 +41,20 @@ export default function BOLScreen({ navigation }) {
   })
   // const goToSettings = () => navigation.navigate("settings", { bolList: true, refreshList: refreshList });
   const goBack = () => navigation.goBack();
+  const goToBOL = () => navigation.navigate('bol_viewer')
 
-
-
-  // const filterData = () => {
-  //   let filteredItems = data;
-  //   console.log('filtered', filteredItems)
-  //   // Apply text filter
-  //   if (searchText) {
-  //     console.log('Apply text filter')
-  //     console.log('SEARCH TEXT::::::::::::', searchText)
-  //     console.log('BOLIST', filteredItems)
-  //     filteredItems = data.filter((item: DATAA) =>
-  //       item.avatarUrl.toUpperCase().includes(searchText.toUpperCase()) ||
-  //       item.recentText.toUpperCase().includes(searchText.toUpperCase()) ||
-  //       item.fullName.toUpperCase().includes(searchText.toUpperCase())
-  //     );
-  //     console.log('filteredItems', filteredItems)
-  //   }
-  //   // Apply date filter
-  //   if (startDate && endDate) {
-  //     console.log('Apply DATE filter')
-  //     let startDateToCompare: Date;
-  //     let endDateToCompare: Date;
-  //     if (range.startDate != undefined && range.endDate != undefined) {
-  //       let startingDate = moment(range.startDate);
-  //       let startDateComponent = startingDate.utc().format('YYYY-MM-DD');
-  //       startDateToCompare = new Date(startDateComponent.toString());
-
-  //       let endingDate = moment(range.endDate).subtract(1, "days");
-  //       let endDateComponent = endingDate.utc().format('YYYY-MM-DD');
-  //       endDateToCompare = new Date(endDateComponent.toString());
-  //       console.log('startDateComponent', startDateComponent)
-  //       console.log('endDateComponent', endDateComponent.toString());
-  //       // Inserted text is not blank
-  //       // Filter the masterDataSource
-  //       // Update FilteredDataSource
-  //       console.log("filteredItems before filter::", filteredItems)
-  //       filteredItems = filteredItems.filter((item: BOL) => {
-  //         const itemDate = new Date(moment(item.TransDate, 'YYYY/MM/DD').format("YYYY-MM-DD"))
-  //         return itemDate >= startDateToCompare && itemDate <= endDateToCompare;
-  //       }
-  //       );
-  //       console.log("filteredItems after filter::", filteredItems)
-  //     };
-  //   }
-  //   console.log("filteredItems after filter::", filteredItems)
-  //   setFilteredData(filteredItems);
-  // };
-
-
-  // let dateRangeSetted = (range.endDate != undefined && range.startDate != undefined)
-
-  //state for bols data
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isBarLoading, setIsBarLoading] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
 
-  const [bolList, setBolList] = useState<BOLICO[]>([]);
-  const [filteredBolList, setFilteredBolList] = useState<BOLICO[]>([]);
+  const [bolList, setBolList] = useState<BOL[]>([]);
+  const [filteredBolList, setFilteredBolList] = useState<BOL[]>([]);
   const [searchText, setSearchText] = useState('');
   const [selectedDates, setSelectedDates] = useState({ start: '', end: '' });
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
   const [error, setError] = useState(null);
-  const documents: BOLICO[] = BOLS;
-
-  // useEffect(() => {
-
-  //   fetchData().then((filteredBolList) => { console.log('sss', filteredBolList) })
-  // }, []); // Empty dependency array means this effect runs once on mount
-  // const fetchData = async () => {
-  //   try {
-  //     setIsLoading(true);
-
-  //     setBolList(documents);
-  //     setFilteredBolList(documents);
-  //     console.log('DOCUMENT', documents)
-  //     console.log('bol list', bolList)
-  //     console.log('bol list', filteredBolList)
-  //     setIsLoading(false); // End loading
-  //   } catch (error) {
-  //     console.error(error);
-  //     setIsLoading(false); // End loading in case of error
-  //   }
-  // };
-
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -152,28 +72,73 @@ export default function BOLScreen({ navigation }) {
     getMaxNumbOfBols(); // Fetch data when the component mounts
   }, [refreshCount]);
 
-  useEffect(() => {
-    if (searchText) {
-        filterData();
-    } else {
-        setFilteredBolList(bolList);
-    }
-}, [searchText, bolList]);
+  React.useEffect(() => {
+    filterData();
+  }, [searchText, range]);
 
   const filterData = () => {
-    // Combine text and date filtering
-    let data = bolList.filter(bol => 
-        (searchText ? 
-            (bol.Terminal.includes(searchText) ||
-            bol.doc_no.includes(searchText) ||
-            bol.truck.includes(searchText) ||
-            bol.trailer1.includes(searchText) ||
-            bol.trailer2.includes(searchText) ||
-            bol.trailer3.includes(searchText)) : true) &&
-        (bol.TransDate >= selectedDates.start && bol.TransDate <= selectedDates.end)
-    );
-    setFilteredBolList(data);
-};
+    let filteredItems = bolList;
+    console.log('filtered', filteredItems)
+
+    // Apply text filter
+    if (searchText) {
+      console.log('Apply text filter')
+      console.log('SEARCH TEXT::::::::::::', searchText)
+      console.log('BOLIST', filteredItems)
+
+      filteredItems = filteredItems.filter(item =>
+        item.Terminal.toUpperCase().includes(searchText.toUpperCase()) ||
+        item.TransRefNo.toUpperCase().includes(searchText.toUpperCase()) ||
+        item.truck.toUpperCase().includes(searchText.toUpperCase()) ||
+        item.trailer1.toUpperCase().includes(searchText.toUpperCase()) ||
+        item.trailer2.toUpperCase().includes(searchText.toUpperCase()) ||
+        item.doc_no.toUpperCase().includes(searchText.toUpperCase())
+      );
+      console.log('filteredItems', filteredItems)
+    }
+    // Apply date filter
+    if (startDate && endDate) {
+      console.log('Apply DATE filter')
+      let startDateToCompare: Date;
+      let endDateToCompare: Date;
+      if (range.startDate != undefined && range.endDate != undefined) {
+        let startingDate = moment(range.startDate);
+        let startDateComponent = startingDate.utc().format('YYYY-MM-DD');
+        startDateToCompare = new Date(startDateComponent.toString());
+        let endingDate = moment(range.endDate).subtract(1, "days");
+        let endDateComponent = endingDate.utc().format('YYYY-MM-DD');
+        endDateToCompare = new Date(endDateComponent.toString());
+        console.log('startDateComponent', startDateComponent)
+        console.log('endDateComponent', endDateComponent.toString());
+        // Inserted text is not blank
+        // Filter the masterDataSource
+        // Update FilteredDataSource
+        console.log("filteredItems before filter::", filteredItems)
+        filteredItems = filteredItems.filter(item => {
+          const itemDate = new Date(moment(item.TransDate, 'YYYY/MM/DD').format("YYYY-MM-DD"))
+          return itemDate >= startDateToCompare && itemDate <= endDateToCompare;
+        }
+        );
+        console.log("filteredItems after filter::", filteredItems)
+      };
+
+    }
+
+    setFilteredBolList(filteredItems);
+    setIsBarLoading(!isBarLoading)
+  };
+
+  const multipleBols = async () => {
+    const selectedBOLS = filteredBolList.filter((bol) => { return bol.selected !== false });
+    try {
+      await getMultipleBOLS(selectedBOLS).then((resp) => {
+        generatePDFSandShare(resp)
+      })
+    }
+    catch (error) {
+      console.log("error", error)
+    }
+  }
 
 
   const rotate = rotation.interpolate({ inputRange: [0, 1], outputRange: ['360deg', '0deg'] });
@@ -222,11 +187,11 @@ export default function BOLScreen({ navigation }) {
     }));
   }
 
-    const getMaxNumbOfBols = async () => {
+  const getMaxNumbOfBols = async () => {
     spin();
     console.log("into getMaxNumbOfBols")
     const numofBols: string | null = await getFromSecureStore("numBols");
-    console.log('number of bols',numofBols)
+    console.log('number of bols', numofBols)
     setNumberOfBols(numofBols)
     getBOLs(numofBols)
   }
@@ -237,50 +202,82 @@ export default function BOLScreen({ navigation }) {
       const license = await getFromSecureStore("license");
       console.log("license", license)
       let body = {
-        license: license,
+        // license: license,
+        license: 'p555443222',
         maxNumberOfBOLs: numBols
       };
 
-      const response = await BolService.getBOLS(body)
-      if (response.data.result[0].Status === "FILE_NOT_FOUND") {
-        console.log("NO_TRANSACTIONS_FOUND")
+      const response = await getBOLS(body)
+      console.log('RESPONSE FROM GET BOLS', response)
+      if (response.data.result[0].Status === "NO_TRANSACTIONS_FOUND") {
+        console.log("no hay bols")
         setEmptyBOLS(true)
       } else {
-        if (response.data.result == null) {
-          console.log("NULL")
-          setEmptyBOLS(true)
-        } else {
-          // const bolArray: BOL[] = Object.values(response.data.result[0].BOLs).filter(function (x) {
-          //   return x.Terminal !== undefined
-          // });
-          const bolArray: BOL[] = Object.values(documents).filter(function (x) {
-            return x.Terminal !== undefined
-          });
-          bolArray.map((bol) => (bol.unformattedDate = bol.TransDate + ' ' + bol.TransTime, bol.selected = false))
-          bolArray.map((i) => (i.TransDate = moment(i.TransDate, 'YYMMDD').format("YYYY/MM/DD"), i.TransTime = moment(i.TransTime, "HHmm").format("HH:mm")));
-          console.log('bolarray', bolArray)
-          setBolList(bolArray);
-          setFilteredBolList(bolArray);
-          setIsLoading(false)
-          setEmptyBOLS(false)
-        }
-
+        const bolArray: BOL[] = Object.values(response.data.result[0].BOLs).filter(function (x) {
+          return x.Terminal !== undefined
+        });
+        bolArray.map((bol) => (bol.unformattedDate = bol.TransDate + ' ' + bol.TransTime))
+        bolArray.map((i) => (i.TransDate = moment(i.TransDate, 'YYMMDD').format("YY/MM/DD"), i.TransTime = moment(i.TransTime, 'HHMM').format("HH:MM")));
+        setBolList(bolArray);
+        setFilteredBolList(bolArray);
+        setIsBarLoading(!isBarLoading)
+        setIsFetching(false);
+        setIsLoading(false)
       }
     } catch (error) {
       console.log("error", error)
       console.log("error type of", typeof (error))
-      const bolArray: BOL[] = Object.values(documents).filter(function (x) {
-        return x.Terminal !== undefined
-      });
-      bolArray.map((bol) => (bol.unformattedDate = bol.TransDate + ' ' + bol.TransTime, bol.selected = false))
-      bolArray.map((i) => (i.TransDate = moment(i.TransDate, 'YYMMDD').format("YYYY/MM/DD"), i.TransTime = moment(i.TransTime, "HHmm").format("HH:mm")));
-      console.log('bolarray', bolArray)
-      setBolList(bolArray);
-      setFilteredBolList(bolArray);
     }
   }
 
-  
+  function getFileUri(name) {
+    return FileSystem.documentDirectory + `${encodeURI(name)}.pdf`;
+  }
+
+  const generatePDFSandShare = async (data) => {
+    const bolsToShare = [];
+    for (let i = 0; i < data.length; i++) {
+      const fileName = "BOL" + data[i].doc_no;
+      const fileURL = getFileUri(fileName);
+      await FileSystem.writeAsStringAsync(getFileUri(fileName), data[i].BLOB, { encoding: FileSystem.EncodingType.Base64 });
+      bolsToShare.push({
+        "filename": fileName,
+        "blob": data[i].BLOB,
+        "fileURL": fileURL
+      })
+    }
+    shareMultiplePDFS(bolsToShare);
+  };
+    
+  const shareMultiplePDFS = async (blobs) => {
+    console.log('BOLS TO SHARE', blobs[0].fileURL);
+    let urls = [];
+
+    for (let i = 0; i < blobs.length; i++) {
+      urls.push(blobs[i].fileURL.toString())
+    }
+    urls.forEach(element => {
+      console.log('element', element)
+    });
+
+    console.log('urls', urls)
+    console.log('type of urls', typeof (urls))
+    const shareOptions = {
+      title: '',
+      urls: urls,
+    };
+    // If you want, you can use a try catch, to parse
+    // the share response. If the user cancels, etc.
+    try {
+      const ShareResponse = await Share.open(shareOptions);
+      console.log('Result =>', ShareResponse);
+    } catch (error) {
+      console.log('Error =>', error);
+
+    }
+  };
+
+
   // const filterData = () => {
   //   let filteredItems = documents;
   //   console.log('filtered', filteredItems)
@@ -306,7 +303,7 @@ export default function BOLScreen({ navigation }) {
   //           let startingDate = moment(range.startDate);
   //           let startDateComponent = startingDate.utc().format('YYYY-MM-DD');
   //           startDateToCompare = new Date(startDateComponent.toString());
-      
+
   //           let endingDate = moment(range.endDate).subtract(1, "days");
   //           let endDateComponent = endingDate.utc().format('YYYY-MM-DD');
   //           endDateToCompare = new Date(endDateComponent.toString());
@@ -337,72 +334,84 @@ export default function BOLScreen({ navigation }) {
     }
   };
 
-  const selectedd = () => {
-    console.info('selected items: ', selectedItems)
+
+  const onRefresh = async () => {
+    setIsFetching(!isFetching);
+    const numofBols: string | null = await getFromSecureStore("numBols");
+    getBOLs(numofBols);
   }
 
+  const goToPDFViewer = async (item: BOL) => {
+    const license = await getFromSecureStore("license");
+    console.log("goToPDFViewer", item)
+    setFilteredBolList(bolList);
+    navigation.navigate('bol_viewer', { bol: item, license: license })
+  }
 
   return (
     <>
-      <StyledBox flex={1} paddingTop={insets.top} bg='#1F4F7B'>
-        <Header headerTx='boList.headerTitle' rightButtons={true} withBack={true} onLeftPress={() => navigation.goBack()} onSharePress={() => selectedd()} />
+      <StyledBox flex={1} paddingTop={insets.top} bg='$light200'>
+        <Header headerTx='boList.headerTitle' rightButtons={true} withBack={true} onLeftPress={() => navigation.goBack()} onSharePress={() => multipleBols()} />
         <VStack bg='$light100'>
           {/* searchbar */}
           <HStack h="$16" bg='$light200'>
             <HStack flex={1} >
               <HStack flex={5} >
-                <View flex={1}>
+                <View flex={1} >
                   <SearchBar
                     placeholder={i18n.t('boList.placeholderSearch')}
                     value={searchText}
-                    onChangeText={(text) => setSearchText(text)}
-                    onClear={() => setSearchText('')}
+                    onChangeText={(text) => {
+                      setSearchText(text)
+                      setIsBarLoading(!isBarLoading)
+                    }}
+                    onClear={() => { setSearchText('') }}
                     round
+                    loadingProps={{ "color": "#1F4F7B" }}
                     lightTheme
                     searchIcon={{ size: 24 }}
+                    showLoading={!isBarLoading}
                     inputContainerStyle={{ backgroundColor: 'white' }}
                     leftIconContainerStyle={{ backgroundColor: 'white' }}
                     inputStyle={{ backgroundColor: 'white' }}
+                    containerStyle={{ height: '100%' }}
                   />
                 </View>
               </HStack>
 
-              <HStack flex={1.5} >
+              <HStack flex={.9} bg="#e1e8ee" justifyContent="center" >
                 <Pressable onPress={() => { dateRangeSetted ? removeDateRange() : setRangeOpen(true) }} justifyContent='center'>
                   {dateRangeSetted ?
                     <Icon as={CalendarMinus} sx={{ _dark: { color: '' }, _light: { color: '#1F4F7B' } }} size={40} />
                     : <Icon as={CalendarPlus} sx={{ _dark: { color: '' }, _light: { color: '#1F4F7B' } }} size={40} />
                   }
                 </Pressable>
-                <Pressable onPress={() => { spin() }} justifyContent='center'>
-                  <Animated.View style={[{ transform: [{ rotate }] }]} >
-                    <Icon as={RefreshCcw} sx={{ _dark: { color: '' }, _light: { color: '#1F4F7B' } }} size={40} />
-                  </Animated.View>
-                </Pressable>
               </HStack>
             </HStack>
           </HStack>
           {/* searchbar */}
 
-
           {/* list */}
           <VStack   >
             {
-              isLoading ? ( <ActivityIndicator size="large" color="#0000ff" /> ) : 
-              filteredBolList.length > 0 ? (
-                <FlatList
-                  data={filteredBolList}
-                  renderItem={({ item }) => (
-                    <ListItem
-                      item={item}
-                      isSelected={selectedItems.includes(item.TransRefNo)}
-                      onSelect={() => handleSelectItem(item.TransRefNo)} />
-                  )}/>
-              ) : ( 
-                <VStack bg='$light100' h="91.2%" borderWidth={2} justifyContent="center" alignItems="center" >
-              <StyledText color="black">{i18n.t('boList.notFound')}</StyledText>
-              </VStack>
-              )
+              isLoading ? (<ActivityIndicator size="large" color="#0000ff" />) :
+                filteredBolList.length > 0 ? (
+                  <FlatList
+                    data={filteredBolList}
+                    onRefresh={() => onRefresh()}
+                    refreshing={isFetching}
+                    renderItem={({ item }) => (
+                      <ListItem
+                        onPress={() => goToPDFViewer(item)}
+                        item={item}
+                        isSelected={selectedItems.includes(item.doc_no)}
+                        onSelect={() => handleSelectItem(item.doc_no)} />
+                    )} />
+                ) : (
+                  <VStack bg='$light100' h="91.2%" justifyContent="center" alignItems="center" >
+                    <StyledText color="black">{i18n.t('boList.notFound')}</StyledText>
+                  </VStack>
+                )
             }
 
           </VStack>

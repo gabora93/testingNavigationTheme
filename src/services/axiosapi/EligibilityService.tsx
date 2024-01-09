@@ -1,46 +1,39 @@
 
 import axios from './axiosInstance';
-import { GET_TERMINALS, GET_SUPPLIERS_BY_TERMINAL, GET_CUSTOMERS_BY_SUPPPLIER, GET_VEHICLES_BY_TERMINAL, GET_ACCOUNTS_BY_SUPPLIER_CUSTOMER, GET_A_DESTINATION_BY_SUPPLIER_CUSTOMER_ACCOUNT, CHECK_LOAD_RACK_ELIGIBILITY, CHECK_ORDER_ELIGIBILITY } from '../../constants.ts';
-import i18n from "i18n-js"
+import { GET_TERMINALS, GET_SUPPLIERS_BY_TERMINAL, GET_CUSTOMERS_BY_SUPPPLIER, GET_VEHICLES_BY_TERMINAL, GET_ACCOUNTS_BY_SUPPLIER_CUSTOMER, GET_A_DESTINATION_BY_SUPPLIER_CUSTOMER_ACCOUNT, CHECK_LOAD_RACK_ELIGIBILITY, CHECK_ORDER_ELIGIBILITY } from '../../constants';
 var moment = require('moment');
+import { useAxiosInstance } from './axiosHook';
 
-class EligibilityService {
-    static instance;
 
-    constructor() {
-        if (this.instance) {
-            return this.instance;
-        }
-        this.axios = axios;
-        this.instance = this;
-    }
+const EligibilityService = () => {
 
+    const { axiosInstance } = useAxiosInstance();
  
-    getTerminalsByLicence = (body) => {
-        let res = this.axios.post(GET_TERMINALS, {
+    const getTerminalsByLicence = async (body) => {
+        let res = axiosInstance.post(GET_TERMINALS, {
             license: body.license
         });
         return res;
     }
 
-    getSuppliersByTerminal = (body) => {
-        let res = this.axios.post(GET_SUPPLIERS_BY_TERMINAL, {
+    const getSuppliersByTerminal = (body) => {
+        let res = axiosInstance.post(GET_SUPPLIERS_BY_TERMINAL, {
             license: body.license,
             term_id: body.term_id
         });
         return res;
     }
 
-    getVehiclesByTerminal = (body) => {
-        let res = this.axios.post(GET_VEHICLES_BY_TERMINAL, {
+    const getVehiclesByTerminal = (body) => {
+        let res = axiosInstance.post(GET_VEHICLES_BY_TERMINAL, {
             license: body.license,
             term_id: body.term_id
         });
         return res;
     }
 
-    getCustomersBySupplier = (body) => { 
-        let res = this.axios.post(GET_CUSTOMERS_BY_SUPPPLIER, {
+    const getCustomersBySupplier = (body) => { 
+        let res = axiosInstance.post(GET_CUSTOMERS_BY_SUPPPLIER, {
             supplier_no: body.supplier_no,
             license: body.license,
             term_id: body.term_id
@@ -48,8 +41,8 @@ class EligibilityService {
         return res;
     }
 
-    getAccountsBySupplierCustomer = (body) => {
-        let res = this.axios.post(GET_ACCOUNTS_BY_SUPPLIER_CUSTOMER, {
+    const getAccountsBySupplierCustomer = (body) => {
+        let res = axiosInstance.post(GET_ACCOUNTS_BY_SUPPLIER_CUSTOMER, {
             supplier_no: body.supplier_no,
             cust_no: body.cust_no,
             license: body.license,
@@ -58,8 +51,8 @@ class EligibilityService {
         return res;
     }
 
-    getAdestinationBySupplierCustomerAccount = (body) => {
-        let res = this.axios.post(GET_A_DESTINATION_BY_SUPPLIER_CUSTOMER_ACCOUNT, {
+    const getAdestinationBySupplierCustomerAccount = (body) => {
+        let res = axiosInstance.post(GET_A_DESTINATION_BY_SUPPLIER_CUSTOMER_ACCOUNT, {
             supplier_no: body.supplier_no,
             cust_no: body.cust_no,
             acct_no: body.acct_no,
@@ -69,8 +62,8 @@ class EligibilityService {
         return res;
     }
 
-    checkLoadRackEligibility = (body) => {
-        let res = this.axios.post(CHECK_LOAD_RACK_ELIGIBILITY, {
+    const checkLoadRackEligibility = (body) => {
+        let res = axiosInstance.post(CHECK_LOAD_RACK_ELIGIBILITY, {
             license: body.license,
             term_id: body.term_id,
             supplier_no: body.supplier_no,
@@ -86,8 +79,8 @@ class EligibilityService {
         return res;
     }
 
-    checkOrderEligibility = (body) => {
-        let res = this.axios.post(CHECK_ORDER_ELIGIBILITY, {
+    const checkOrderEligibility = (body) => {
+        let res = axiosInstance.post(CHECK_ORDER_ELIGIBILITY, {
             license: body.license,
             term_id: body.term_id,
             supplier_no: body.supplier_no,
@@ -101,8 +94,18 @@ class EligibilityService {
         return res;
     }
 
+    return {
+        getTerminalsByLicence,
+        getSuppliersByTerminal,
+        getCustomersBySupplier,
+        getAccountsBySupplierCustomer,
+        getAdestinationBySupplierCustomerAccount,
+        checkLoadRackEligibility,
+        checkOrderEligibility,
+        getVehiclesByTerminal
+    }
+
     
 
 }
-
-export default new EligibilityService();
+export default EligibilityService;

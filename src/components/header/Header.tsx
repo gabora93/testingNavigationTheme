@@ -19,6 +19,7 @@ export function Header(props: HeaderProps) {
     rightButtons,
     leftIcon,
     withBack,
+    withSettings,
     headerText,
     headerTx,
     style,
@@ -52,9 +53,13 @@ export function Header(props: HeaderProps) {
                 <Pressable onPress={onSharePress}>
                   <Icon as={Share2} sx={{ _dark: { color: '' }, _light: { color: 'white' } }} size={40} />
                 </Pressable>
-                <Pressable onPress={onSettingsPress}>
+                { withSettings ? 
+              <>
+              <Pressable onPress={onSharePress}>
                   <Icon as={Settings} sx={{ _dark: { color: '' }, _light: { color: 'white' } }} size={40} />
                 </Pressable>
+              </>  : <></>
+              }
               </> :
               <>
               </>
